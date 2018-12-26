@@ -1,0 +1,15 @@
+C:\Users\Roman\source\repos\Ledger\DependencyInjection\bin\Debug\DependencyInjection.dll
+C:\Users\Roman\source\repos\Ledger\DependencyInjection\bin\Debug\DependencyInjection.pdb
+C:\Users\Roman\source\repos\Ledger\DependencyInjection\bin\Debug\BusinessLogicLayer.dll
+C:\Users\Roman\source\repos\Ledger\DependencyInjection\bin\Debug\Common.dll
+C:\Users\Roman\source\repos\Ledger\DependencyInjection\bin\Debug\DataAccessLayer.dll
+C:\Users\Roman\source\repos\Ledger\DependencyInjection\bin\Debug\StructureMap.dll
+C:\Users\Roman\source\repos\Ledger\DependencyInjection\bin\Debug\BusinessLogicLayer.pdb
+C:\Users\Roman\source\repos\Ledger\DependencyInjection\bin\Debug\Common.pdb
+C:\Users\Roman\source\repos\Ledger\DependencyInjection\bin\Debug\DataAccessLayer.pdb
+C:\Users\Roman\source\repos\Ledger\DependencyInjection\bin\Debug\StructureMap.xml
+C:\Users\Roman\source\repos\Ledger\DependencyInjection\obj\Debug\DependencyInjection.csprojAssemblyReference.cache
+C:\Users\Roman\source\repos\Ledger\DependencyInjection\obj\Debug\DependencyInjection.csproj.CoreCompileInputs.cache
+C:\Users\Roman\source\repos\Ledger\DependencyInjection\obj\Debug\DependencyInjection.csproj.CopyComplete
+C:\Users\Roman\source\repos\Ledger\DependencyInjection\obj\Debug\DependencyInjection.dll
+C:\Users\Roman\source\repos\Ledger\DependencyInjection\obj\Debug\DependencyInjection.pdb

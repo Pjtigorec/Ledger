@@ -1,0 +1,45 @@
+﻿@model List<Common.Core.Subject>
+
+@{
+    ViewBag.Title = "Книга хоз учета";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row">
+    <div class="col-md-2">
+        <h4>Фильтры</h4>
+        <input id="color" name="color" type="radio" value="red" />
+        <span>красный</span> <br />
+        <input id="color" name="color" type="radio" value="blue" />
+        <span>синий</span> <br />
+        <input checked="checked" id="color" name="color" type="radio" value="green" />
+        <span>зеленый</span>
+    </div>
+    <div class="col-md-8">
+        <input id="searchText" type="text">
+        <button id="findTable" class="btn btn-default">Найти</button>
+        <table class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th>Имя</th>
+                    <th>Номер</th>
+                    <th>Описание</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var v in Model)
+                {
+                    <tr>
+                        <td><a href="/Home/Details/@v.Id" class="compItem" data-toggle="modal">@v.Name</a></td>
+                        <td>@v.InventoryNumber</td>
+                        <td>@v.Description</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+    <div class="col-md-2">
+        Аккаунт
+        <a href="/Home/Add" class="btn btn-outline-success my-2 my-sm-0">Добавить</a>
+    </div>
+</div>

@@ -1,0 +1,13 @@
+C:\Users\Roman\source\repos\Ledger\BusinessLogicLayer\bin\Debug\BusinessLogicLayer.dll
+C:\Users\Roman\source\repos\Ledger\BusinessLogicLayer\bin\Debug\BusinessLogicLayer.pdb
+C:\Users\Roman\source\repos\Ledger\BusinessLogicLayer\bin\Debug\Common.dll
+C:\Users\Roman\source\repos\Ledger\BusinessLogicLayer\bin\Debug\DataAccessLayer.dll
+C:\Users\Roman\source\repos\Ledger\BusinessLogicLayer\bin\Debug\StructureMap.dll
+C:\Users\Roman\source\repos\Ledger\BusinessLogicLayer\bin\Debug\Common.pdb
+C:\Users\Roman\source\repos\Ledger\BusinessLogicLayer\bin\Debug\DataAccessLayer.pdb
+C:\Users\Roman\source\repos\Ledger\BusinessLogicLayer\bin\Debug\StructureMap.xml
+C:\Users\Roman\source\repos\Ledger\BusinessLogicLayer\obj\Debug\BusinessLogicLayer.csprojAssemblyReference.cache
+C:\Users\Roman\source\repos\Ledger\BusinessLogicLayer\obj\Debug\BusinessLogicLayer.csproj.CoreCompileInputs.cache
+C:\Users\Roman\source\repos\Ledger\BusinessLogicLayer\obj\Debug\BusinessLogicLayer.csproj.CopyComplete
+C:\Users\Roman\source\repos\Ledger\BusinessLogicLayer\obj\Debug\BusinessLogicLayer.dll
+C:\Users\Roman\source\repos\Ledger\BusinessLogicLayer\obj\Debug\BusinessLogicLayer.pdb

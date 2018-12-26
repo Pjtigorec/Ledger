@@ -1,0 +1,6 @@
+C:\Users\Roman\source\repos\Ledger\Common\bin\Debug\Common.dll
+C:\Users\Roman\source\repos\Ledger\Common\bin\Debug\Common.pdb
+C:\Users\Roman\source\repos\Ledger\Common\obj\Debug\Common.csprojAssemblyReference.cache
+C:\Users\Roman\source\repos\Ledger\Common\obj\Debug\Common.csproj.CoreCompileInputs.cache
+C:\Users\Roman\source\repos\Ledger\Common\obj\Debug\Common.dll
+C:\Users\Roman\source\repos\Ledger\Common\obj\Debug\Common.pdb
