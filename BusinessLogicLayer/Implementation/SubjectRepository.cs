@@ -38,5 +38,20 @@ namespace BusinessLogicLayer.Implementation
         {
             _db.Subjects.Delete(id);
         }
+
+        public State GetSubjectState(int stateId)
+        {
+            return _db.Subjects.GetSubjectState(stateId);
+        }
+
+        public List<State> GetAllStates()
+        {
+            return _db.Subjects.GetAllStates();
+        }
+
+        public int GetStateId(string stateName)
+        {
+            return _db.Subjects.GetStateId(stateName);
+        }
     }
 }

@@ -1,9 +1,11 @@
-﻿namespace Common.Models
+﻿namespace Common.Core
 {
-    public class Building
+    public class Floot
     {
         public int Id { get; set; }
 
         public string Name { get; set; }
+
+        public int BuildingId { get; set; }
     }
 }

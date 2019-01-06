@@ -1,0 +1,25 @@
+﻿<label class="col-md-2">Местоположение</label>
+<div class="col-md-10">
+
+    <div>
+        <label class="col-md-2">Здание</label>
+        <div class="col-md-10">
+            @Html.DropDownList("Buildings", ViewBag.Buildings as SelectList, new { id = "buildings" })
+        </div>
+    </div>
+
+    <div>
+        <label class="col-md-2">Этаж</label>
+        <div class="col-md-10">
+            @Html.DropDownList("Floots", ViewBag.Floots as SelectList, new { id = "floots" })
+        </div>
+    </div>
+
+    <div>
+        <label class="control-label col-md-2" for="Room">Кабинет</label>
+        <div class="col-md-10">
+            @Html.DropDownList("Rooms", ViewBag.Rooms as SelectList, new { id = "rooms" })
+        </div>
+    </div>
+
+</div>

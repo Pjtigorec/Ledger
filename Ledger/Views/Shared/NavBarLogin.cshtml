@@ -1,1 +1,24 @@
-﻿
+﻿<div class="collapse navbar-collapse">
+    @if (Request.IsAuthenticated)
+    {
+        <form action="Account/Login">
+
+            @Html.AntiForgeryToken()
+
+            <ul navbar-nav mr-auto>
+                <li class="nav-item active">
+                    <a href="/Account/LogOff" class="btn btn-outline-success my-2 my-sm-0">Выйти</a>
+                </li>
+            </ul>
+
+        </form>
+    }
+    else
+    {
+        <ul>
+            <li class="nav-item active">
+                <a href="/Account/Login" class="btn btn-outline-success my-2 my-sm-0">Войти</a>
+            </li>
+        </ul>
+    }
+</div>

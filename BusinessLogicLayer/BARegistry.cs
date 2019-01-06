@@ -13,6 +13,7 @@ namespace BusinessLogicLayer
         {
             For<IBusinessLogic>().Use<BusinessLogic>();
             For<ISubjectRepository>().Use<SubjectRepository>();
+            For<ILocationRepository>().Use<LocationRepository>();
             For<IUserRepository>().Use<UserRepository>();
             For<ILoginRepository>().Use<LoginRepository>();
             For<IRegisterRepository>().Use<RegisterRepository>();
@@ -20,6 +21,7 @@ namespace BusinessLogicLayer
 
             Forward<IDataAccess, DataAccess>();
             Forward<ISubjectRepository, SubjectRepository>();
+            Forward<ILocationRepository, LocationRepository>();
             Forward<IUserRepository, UserRepository>();
             Forward<ILoginRepository, LoginRepository>();
             Forward<IRegisterRepository, RegisterRepository>();

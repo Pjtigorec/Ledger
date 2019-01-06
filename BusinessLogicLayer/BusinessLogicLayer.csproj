@@ -47,6 +47,7 @@
     <Compile Include="BARegistry.cs" />
     <Compile Include="BusinessLogic.cs" />
     <Compile Include="Implementation\AccountRepository.cs" />
+    <Compile Include="Implementation\LocationRepository.cs" />
     <Compile Include="Implementation\LoginRepository.cs" />
     <Compile Include="Implementation\RegisterRepository.cs" />
     <Compile Include="Implementation\SubjectRepository.cs" />

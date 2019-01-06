@@ -44,12 +44,14 @@
   <ItemGroup>
     <Compile Include="AccountModels\LoginModel.cs" />
     <Compile Include="AccountModels\RegisterModel.cs" />
-    <Compile Include="Models\Building.cs" />
-    <Compile Include="Models\Floot.cs" />
-    <Compile Include="Models\Room.cs" />
+    <Compile Include="Core\Building.cs" />
+    <Compile Include="Core\Floot.cs" />
+    <Compile Include="Core\State.cs" />
+    <Compile Include="Core\Room.cs" />
     <Compile Include="Core\Subject.cs" />
     <Compile Include="Core\User.cs" />
     <Compile Include="Interfaces\IAccountRepository.cs" />
+    <Compile Include="Interfaces\ILocationRepository.cs" />
     <Compile Include="Interfaces\ILoginRepository.cs" />
     <Compile Include="Interfaces\IRegisterRepository.cs" />
     <Compile Include="Interfaces\IRepository.cs" />

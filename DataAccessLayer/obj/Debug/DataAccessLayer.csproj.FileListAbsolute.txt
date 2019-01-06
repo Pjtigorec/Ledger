@@ -9,3 +9,14 @@ C:\Users\Roman\source\repos\Ledger\DataAccessLayer\obj\Debug\DataAccessLayer.csp
 C:\Users\Roman\source\repos\Ledger\DataAccessLayer\obj\Debug\DataAccessLayer.csproj.CopyComplete
 C:\Users\Roman\source\repos\Ledger\DataAccessLayer\obj\Debug\DataAccessLayer.dll
 C:\Users\Roman\source\repos\Ledger\DataAccessLayer\obj\Debug\DataAccessLayer.pdb
+C:\Users\Roman\Documents\GitHub\Ledger\DataAccessLayer\bin\Debug\DataAccessLayer.dll
+C:\Users\Roman\Documents\GitHub\Ledger\DataAccessLayer\bin\Debug\DataAccessLayer.pdb
+C:\Users\Roman\Documents\GitHub\Ledger\DataAccessLayer\bin\Debug\Common.dll
+C:\Users\Roman\Documents\GitHub\Ledger\DataAccessLayer\bin\Debug\StructureMap.dll
+C:\Users\Roman\Documents\GitHub\Ledger\DataAccessLayer\bin\Debug\Common.pdb
+C:\Users\Roman\Documents\GitHub\Ledger\DataAccessLayer\bin\Debug\StructureMap.xml
+C:\Users\Roman\Documents\GitHub\Ledger\DataAccessLayer\obj\Debug\DataAccessLayer.csprojAssemblyReference.cache
+C:\Users\Roman\Documents\GitHub\Ledger\DataAccessLayer\obj\Debug\DataAccessLayer.csproj.CoreCompileInputs.cache
+C:\Users\Roman\Documents\GitHub\Ledger\DataAccessLayer\obj\Debug\DataAccessLayer.csproj.CopyComplete
+C:\Users\Roman\Documents\GitHub\Ledger\DataAccessLayer\obj\Debug\DataAccessLayer.dll
+C:\Users\Roman\Documents\GitHub\Ledger\DataAccessLayer\obj\Debug\DataAccessLayer.pdb

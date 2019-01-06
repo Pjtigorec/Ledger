@@ -1,54 +1,322 @@
 ﻿using Common.Core;
 using Common.Interfaces;
-using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 
 namespace DataAccessLayer.Implementation
 {
     public class SubjectRepository : ISubjectRepository
     {
+        string connectionString = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=LedgerDB;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
+
         public List<Subject> GetSubjects()
         {
-            List<Subject> list = new List<Subject>();
-            for(int i = 1; i < 11; i++)
+            string sqlExpression = "sp_GetSubjects";
+            List<Subject> subjects = new List<Subject>();
+
+            using (SqlConnection connection = new SqlConnection(connectionString))
             {
-                Subject subject = new Subject
+                connection.Open();
+                SqlCommand command = new SqlCommand(sqlExpression, connection);
+                command.CommandType = System.Data.CommandType.StoredProcedure;
+
+                var reader = command.ExecuteReader();
+
+                if (reader.HasRows)
                 {
-                    Id = i,
-                    Name = "Предмет №" + i,
-                    InventoryNumber = i.ToString(),
-                    Description = "Это предмет №" + i
-                };
-                list.Add(subject);
+                    while (reader.Read())
+                    {
+                        Subject subject = new Subject();
+
+                        subject.Id = int.Parse(reader["Id"].ToString());
+                        subject.Name = reader["Name"].ToString();
+                        subject.InventoryNumber = reader["InventoryNumber"].ToString();
+                        subject.Description = reader["Description"].ToString();
+                        subject.StateId = int.Parse(reader["StateId"].ToString());
+                        subject.RoomId = int.Parse(reader["RoomId"].ToString());
+
+                        subjects.Add(subject);
+                    }
+                }
+                reader.Close();
             }
-            return list;
+
+            return subjects;
         }
 
         public Subject GetSubjectById(int id)
         {
-            Subject subject = new Subject
+            string sqlExpression = "sp_GetSubjectById";
+            Subject subject = new Subject();
+
+            using (SqlConnection connection = new SqlConnection(connectionString))
             {
-                Id = id,
-                Name = "Предмет №" + id,
-                InventoryNumber = id.ToString(),
-                Description = "Это предмет №" + id
-            };
+                connection.Open();
+                SqlCommand command = new SqlCommand(sqlExpression, connection);
+                command.CommandType = System.Data.CommandType.StoredProcedure;
+
+                SqlParameter idParam = new SqlParameter
+                {
+                    ParameterName = "@id",
+                    Value = id
+                };
+                command.Parameters.Add(idParam);
+
+                var reader = command.ExecuteReader();
+
+                if (reader.HasRows)
+                {
+                    while (reader.Read())
+                    { 
+                        subject.Id = int.Parse(reader["Id"].ToString());
+                        subject.Name = reader["Name"].ToString();
+                        subject.InventoryNumber = reader["InventoryNumber"].ToString();
+                        subject.Description = reader["Description"].ToString();
+                        subject.StateId = int.Parse(reader["StateId"].ToString());
+                        subject.RoomId = int.Parse(reader["RoomId"].ToString());
+                    }
+                }
+                reader.Close();
+            }
+
             return subject;
         }
 
         public void Create(Subject subject)
         {
-            throw new NotImplementedException();
+            string sqlExpression = "sp_CreateSubject";
+
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+                SqlCommand command = new SqlCommand(sqlExpression, connection);
+                command.CommandType = System.Data.CommandType.StoredProcedure;
+
+                SqlParameter idParam = new SqlParameter
+                {
+                    ParameterName = "@id",
+                    Value = subject.Id
+                };
+                command.Parameters.Add(idParam);
+                SqlParameter nameParam = new SqlParameter
+                {
+                    ParameterName = "@name",
+                    Value = subject.Name
+                };
+                command.Parameters.Add(nameParam);
+                SqlParameter inventoryNumberParam = new SqlParameter
+                {
+                    ParameterName = "@inventoryNumber",
+                    Value = subject.InventoryNumber
+                };
+                command.Parameters.Add(inventoryNumberParam);
+                SqlParameter descriptionParam = new SqlParameter
+                {
+                    ParameterName = "@descriptionNumber",
+                    Value = subject.Description
+                };
+                command.Parameters.Add(descriptionParam);
+                SqlParameter stateIdParam = new SqlParameter
+                {
+                    ParameterName = "@stateId",
+                    Value = subject.StateId
+                };
+                command.Parameters.Add(stateIdParam);
+                SqlParameter roomIdParam = new SqlParameter
+                {
+                    ParameterName = "@roomId",
+                    Value = subject.RoomId
+                };
+                command.Parameters.Add(roomIdParam);
+                SqlParameter imageIdParam = new SqlParameter
+                {
+                    ParameterName = "@imageIdd",
+                    Value = subject.Id
+                };
+                command.Parameters.Add(imageIdParam);
+
+                var reader = command.ExecuteReader();
+
+                reader.Close();
+            }
         }
 
         public void Update(Subject subject)
         {
-            throw new NotImplementedException();
+            string sqlExpression = "sp_UpdateSubject";
+
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+                SqlCommand command = new SqlCommand(sqlExpression, connection);
+                command.CommandType = System.Data.CommandType.StoredProcedure;
+
+                SqlParameter idParam = new SqlParameter
+                {
+                    ParameterName = "@id",
+                    Value = subject.Id
+                };
+                command.Parameters.Add(idParam);
+                SqlParameter nameParam = new SqlParameter
+                {
+                    ParameterName = "@name",
+                    Value = subject.Name
+                };
+                command.Parameters.Add(nameParam);
+                SqlParameter inventoryNumberParam = new SqlParameter
+                {
+                    ParameterName = "@inventoryNumber",
+                    Value = subject.InventoryNumber
+                };
+                command.Parameters.Add(inventoryNumberParam);
+                SqlParameter descriptionParam = new SqlParameter
+                {
+                    ParameterName = "@descriptionNumber",
+                    Value = subject.Description
+                };
+                command.Parameters.Add(descriptionParam);
+                SqlParameter stateIdParam = new SqlParameter
+                {
+                    ParameterName = "@stateId",
+                    Value = subject.StateId
+                };
+                command.Parameters.Add(stateIdParam);
+                SqlParameter roomIdParam = new SqlParameter
+                {
+                    ParameterName = "@roomId",
+                    Value = subject.RoomId
+                };
+                command.Parameters.Add(roomIdParam);
+                SqlParameter imageIdParam = new SqlParameter
+                {
+                    ParameterName = "@imageIdd",
+                    Value = subject.Id
+                };
+                command.Parameters.Add(imageIdParam);
+
+                var reader = command.ExecuteReader();
+
+                reader.Close();
+            }
         }
 
         public void Delete(int id)
         {
-            throw new NotImplementedException();
+            string sqlExpression = "sp_DeleteSubject";
+
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+                SqlCommand command = new SqlCommand(sqlExpression, connection);
+                command.CommandType = System.Data.CommandType.StoredProcedure;
+
+                SqlParameter idParam = new SqlParameter
+                {
+                    ParameterName = "@id",
+                    Value = id
+                };
+                command.Parameters.Add(idParam);
+
+                var reader = command.ExecuteReader();
+
+                reader.Close();
+            }
+        }
+
+        public State GetSubjectState(int stateId)
+        {
+            string sqlExpression = "sp_GetSubjectState";
+            State state = new State();
+
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+                SqlCommand command = new SqlCommand(sqlExpression, connection);
+                command.CommandType = System.Data.CommandType.StoredProcedure;
+
+                SqlParameter stateIdParam = new SqlParameter
+                {
+                    ParameterName = "@stateId",
+                    Value = stateId
+                };
+                command.Parameters.Add(stateIdParam);
+
+                var reader = command.ExecuteReader();
+
+                if (reader.HasRows)
+                {
+                    while (reader.Read())
+                    {
+                        state.Id = int.Parse(reader["Id"].ToString());
+                        state.Name = reader["Name"].ToString();
+                    }
+                }
+                reader.Close();
+            }
+            return state;
+        }
+
+        public List<State> GetAllStates()
+        {
+            string sqlExpression = "sp_GetAllStates";
+            List<State> states = new List<State>();
+
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+                SqlCommand command = new SqlCommand(sqlExpression, connection);
+                command.CommandType = System.Data.CommandType.StoredProcedure;
+
+                var reader = command.ExecuteReader();
+
+                if (reader.HasRows)
+                {
+                    while (reader.Read())
+                    {
+                        State state = new State();
+
+                        state.Id = int.Parse(reader["Id"].ToString());
+                        state.Name = reader["Name"].ToString();
+
+                        states.Add(state);
+                    }
+                }
+                reader.Close();
+            }
+
+            return states;
+        }
+
+        public int GetStateId(string stateName)
+        {
+            string sqlExpression = "sp_GetStateId";
+
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+                SqlCommand command = new SqlCommand(sqlExpression, connection);
+                command.CommandType = System.Data.CommandType.StoredProcedure;
+
+                SqlParameter stateNameParam = new SqlParameter
+                {
+                    ParameterName = "@stateName",
+                    Value = stateName
+                };
+                command.Parameters.Add(stateNameParam);
+
+                var reader = command.ExecuteReader();
+
+                if (reader.HasRows)
+                {
+                    while (reader.Read())
+                    {
+                        return int.Parse(reader["Id"].ToString());
+                    }
+                }
+                reader.Close();
+            }
+
+            return 0;
         }
     }
 }

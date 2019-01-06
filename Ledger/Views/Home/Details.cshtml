@@ -1,4 +1,4 @@
-﻿@model Common.Core.Subject
+﻿@model Common.Models.SubjectModel
 
 <div class="modal-content">
     <div class="modal-header align-content-center">
@@ -15,6 +15,12 @@
 
             <dt>Описание</dt>
             <dd>@Html.DisplayFor(model => model.Description)</dd>
+
+            <dt>Состояние</dt>
+            <dd>@Html.DisplayFor(model => model.State.Name)</dd>
+
+            <dt>Кабинет</dt>
+            <dd>@Html.DisplayFor(model => model.Room)</dd>
 
         </dl>
     </div>

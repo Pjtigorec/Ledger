@@ -11,6 +11,7 @@ namespace DataAccessLayer
         {
             For<IDataAccess>().Use<DataAccess>();
             For<ISubjectRepository>().Use<SubjectRepository>();
+            For<ILocationRepository>().Use<LocationRepository>();
             For<IUserRepository>().Use<UserRepository>();
             For<ILoginRepository>().Use<LoginRepository>();
             For<IRegisterRepository>().Use<RegisterRepository>();

@@ -8,5 +8,11 @@ namespace Common.Interfaces
         List<Subject> GetSubjects();
 
         Subject GetSubjectById(int id);
+
+        State GetSubjectState(int stateId);
+
+        List<State> GetAllStates();
+
+        int GetStateId(string stateName);
     }
 }

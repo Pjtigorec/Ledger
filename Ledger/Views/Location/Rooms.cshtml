@@ -1,0 +1,10 @@
+﻿@model IEnumerable<Common.Core.Room>
+
+<select id="rooms" name="Rooms">
+    @foreach (var v in Model)
+    {
+        <option value="@v.Id">
+            @v.Name
+        </option>
+    }
+</select>
