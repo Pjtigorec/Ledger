@@ -22,17 +22,13 @@ namespace Common.Models
 
         [Required]
         [Display(Name = "Состояние")]
-        public string State { get; set; }
-
         public int StateId { get; set; }
 
-        public List<State> States { get; set; }
+        public IEnumerable<State> States { get; set; }
 
         [Required]
         [Display(Name = "Кабинет")]
-        public string Room { get; set; }
-
-        public int RoomId { get; set; }
+        public Room Room { get; set; }
 
         public List<Room> Rooms { get; set; }
     }

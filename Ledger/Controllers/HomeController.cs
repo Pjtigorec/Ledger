@@ -31,8 +31,8 @@ namespace Ledger.Controllers
                 Name = subject.Name,
                 InventoryNumber = subject.InventoryNumber,
                 Description = subject.Description,
-                //State = _db.Subjects.GetSubjectState(subject.StateId),
-                Room = _db.Locations.GetRoom(subject.RoomId).Name
+                StateId = _db.Subjects.GetSubjectState(subject.StateId).Id,
+                Room = _db.Locations.GetRoom(subject.RoomId)
             };
             return PartialView(subjectModel);
         }
@@ -40,12 +40,37 @@ namespace Ledger.Controllers
         [HttpGet]
         public ActionResult Edit(int id)
         {
-            return View(new SubjectModel());
+            Subject subject = _db.Subjects.GetSubjectById(id);
+            SubjectModel model = new SubjectModel
+            {
+                Id = subject.Id,
+                Name = subject.Name,
+                InventoryNumber = subject.InventoryNumber,
+                Description = subject.Description,
+                StateId = _db.Subjects.GetSubjectState(subject.StateId).Id,
+                States = _db.Subjects.GetAllStates(),
+                Room = _db.Locations.GetRoom(subject.RoomId)
+            };
+            return View(model);
         }
         [HttpPost]
-        public ActionResult Edit(SubjectModel subject)
+        public ActionResult Edit(SubjectModel model)
         {
-            return RedirectToAction("Index", "Home");
+            if (ModelState.IsValid)
+            {
+                Subject subject = new Subject();
+
+                subject.Name = model.Name;
+                subject.InventoryNumber = model.InventoryNumber;
+                subject.Description = model.Description;
+                subject.StateId = model.StateId;
+                subject.RoomId = model.Room.Id;
+
+                _db.Subjects.Create(subject);
+
+                return RedirectToAction("Index", "Home");
+            }
+            return View(model);
         }
         
         [HttpGet]
@@ -68,9 +93,9 @@ namespace Ledger.Controllers
                 subject.Name = model.Name;
                 subject.InventoryNumber = model.InventoryNumber;
                 subject.Description = model.Description;
-                //subject.StateId = model.State.Id;
-                subject.RoomId = _db.Locations.GetRoomId(model.Room);
-                
+                subject.StateId = model.StateId;
+                subject.RoomId = model.Room.Id;
+
                 _db.Subjects.Create(subject);
 
                 return RedirectToAction("Index", "Home");
