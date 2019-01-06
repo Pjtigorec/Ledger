@@ -1,0 +1,23 @@
+﻿@model Common.Core.User
+
+<h4>Добро пожаловать!</h4>
+<hr />
+<p>Ваш логин : @Model.Login</p>
+<hr />
+<p>Ваша почта : @Model.Email</p>
+<hr />
+<p>Ваша роль в системе: @Model.Role</p>
+<hr />
+
+@if (Model.Role == "Admin")
+{
+    <a href="/Home/Add" class="btn btn-outline-success my-2 my-sm-0">Добавить предмет</a>
+    <hr />
+    <a href="/Users" class="btn btn-outline-success my-2 my-sm-0">Пользователи</a>
+    <hr />
+}
+else if (Model.Role == "Moderator")
+{
+    <a href="/Home/Add" class="btn btn-outline-success my-2 my-sm-0">Добавить предмет</a>
+    <hr />
+}

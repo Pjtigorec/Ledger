@@ -1,6 +1,7 @@
 ﻿using BusinessLogicLayer.Interfaces;
 using Common.Core;
 using Common.Models;
+using System.Collections.Generic;
 using System.Web.Mvc;
 
 namespace Ledger.Controllers
@@ -30,12 +31,19 @@ namespace Ledger.Controllers
                 Email = user.Email,
                 Role = user.Role
             };
+            model.Roles = new List<string> { "User", "Moderator", "Admin" };
             return View(model);
         }
         [HttpPost]
         public ActionResult Edit(UserModel model)
         {
-            return RedirectToAction("Index", "Home");
+            if (ModelState.IsValid && _db.Accounts.Register.CheckLoginForRegister(model.Login))
+            {
+                User user = UserModel.ConvertModelToUser(model);
+                _db.Users.Update(user);
+                return RedirectToAction("Index", "Users");
+            }
+            return View(model);
         }
 
         [HttpGet]
@@ -46,9 +54,11 @@ namespace Ledger.Controllers
         [HttpPost]
         public ActionResult Add(UserModel model)
         {
-            if (ModelState.IsValid)
+            if (ModelState.IsValid && _db.Accounts.Register.CheckLoginForRegister(model.Login))
             {
-                return RedirectToAction("Index", "Home");
+                User user = UserModel.ConvertModelToUser(model);
+                _db.Users.Create(user);
+                return RedirectToAction("Index", "Users");
             }
 
             return View(model);

@@ -1,11 +1,12 @@
 ﻿using BusinessLogicLayer.Interfaces;
 using Common.Core;
 using Common.Models;
-using System.Collections.Generic;
+using Ledger.Attributes;
 using System.Web.Mvc;
 
 namespace Ledger.Controllers
 {
+    [User]
     public class HomeController : Controller
     {
         IBusinessLogic _db;
@@ -17,7 +18,7 @@ namespace Ledger.Controllers
 
         public ActionResult Index()
         {
-            ViewBag.Name = User.Identity.Name;
+            ViewBag.Role = HttpContext.Request.Cookies["Role"].Value;
             return View(_db.Subjects.GetSubjects());
         }
 
@@ -25,32 +26,19 @@ namespace Ledger.Controllers
         public ActionResult Details(int id)
         {
             Subject subject = _db.Subjects.GetSubjectById(id);
-            SubjectModel subjectModel = new SubjectModel
-            {
-                Id = subject.Id,
-                Name = subject.Name,
-                InventoryNumber = subject.InventoryNumber,
-                Description = subject.Description,
-                StateId = _db.Subjects.GetSubjectState(subject.StateId).Id,
-                Room = _db.Locations.GetRoom(subject.RoomId)
-            };
-            return PartialView(subjectModel);
+            SubjectModel model = SubjectModel.ConvertSubjectToModel(subject);
+            model.StateName = _db.Subjects.GetSubjectState(subject.StateId).Name;
+            model.RoomName = _db.Locations.GetRoom(subject.RoomId).Name;
+
+            return PartialView(model);
         }
 
         [HttpGet]
         public ActionResult Edit(int id)
         {
             Subject subject = _db.Subjects.GetSubjectById(id);
-            SubjectModel model = new SubjectModel
-            {
-                Id = subject.Id,
-                Name = subject.Name,
-                InventoryNumber = subject.InventoryNumber,
-                Description = subject.Description,
-                StateId = _db.Subjects.GetSubjectState(subject.StateId).Id,
-                States = _db.Subjects.GetAllStates(),
-                Room = _db.Locations.GetRoom(subject.RoomId)
-            };
+            SubjectModel model = SubjectModel.ConvertSubjectToModel(subject);
+
             return View(model);
         }
         [HttpPost]
@@ -58,13 +46,7 @@ namespace Ledger.Controllers
         {
             if (ModelState.IsValid)
             {
-                Subject subject = new Subject();
-
-                subject.Name = model.Name;
-                subject.InventoryNumber = model.InventoryNumber;
-                subject.Description = model.Description;
-                subject.StateId = model.StateId;
-                subject.RoomId = model.Room.Id;
+                Subject subject = SubjectModel.ConvertModelToSubject(model);
 
                 _db.Subjects.Create(subject);
 
@@ -78,8 +60,7 @@ namespace Ledger.Controllers
         {
             SubjectModel model = new SubjectModel();
 
-            List<State> states = _db.Subjects.GetAllStates();
-            model.States = states;
+            model.States = _db.Subjects.GetAllStates();
 
             return View(model);
         }
@@ -88,13 +69,7 @@ namespace Ledger.Controllers
         {
             if (ModelState.IsValid)
             {
-                Subject subject = new Subject();
-
-                subject.Name = model.Name;
-                subject.InventoryNumber = model.InventoryNumber;
-                subject.Description = model.Description;
-                subject.StateId = model.StateId;
-                subject.RoomId = model.Room.Id;
+                Subject subject = SubjectModel.ConvertModelToSubject(model);
 
                 _db.Subjects.Create(subject);
 
@@ -104,6 +79,7 @@ namespace Ledger.Controllers
             return View(model);
         }
 
+        [Admin]
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";

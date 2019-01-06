@@ -1,6 +1,5 @@
 ﻿using Common.Core;
 using Common.Interfaces;
-using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 
@@ -9,7 +8,6 @@ namespace DataAccessLayer.Implementation
     public class UserRepository : IUserRepository
     {
         string connectionString = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=LedgerDB;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
-
 
         public List<User> GetUsers()
         {
@@ -124,14 +122,68 @@ namespace DataAccessLayer.Implementation
             }
         }
 
-        public void Update(User t)
+        public void Update(User user)
         {
-            throw new NotImplementedException();
+            string sqlExpression = "sp_UpdateUser";
+
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+                SqlCommand command = new SqlCommand(sqlExpression, connection);
+                command.CommandType = System.Data.CommandType.StoredProcedure;
+
+                SqlParameter idParam = new SqlParameter
+                {
+                    ParameterName = "@id",
+                    Value = user.Id
+                };
+                command.Parameters.Add(idParam);
+                SqlParameter loginParam = new SqlParameter
+                {
+                    ParameterName = "@login",
+                    Value = user.Login
+                };
+                command.Parameters.Add(loginParam);
+                SqlParameter emailParam = new SqlParameter
+                {
+                    ParameterName = "@email",
+                    Value = user.Email
+                };
+                command.Parameters.Add(emailParam);
+                SqlParameter roleParam = new SqlParameter
+                {
+                    ParameterName = "@role",
+                    Value = user.Role
+                };
+                command.Parameters.Add(roleParam);
+
+                var reader = command.ExecuteReader();
+
+                reader.Close();
+            }
         }
 
         public void Delete(int id)
         {
-            throw new NotImplementedException();
+            string sqlExpression = "sp_DeleteUser";
+
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+                SqlCommand command = new SqlCommand(sqlExpression, connection);
+                command.CommandType = System.Data.CommandType.StoredProcedure;
+
+                SqlParameter idParam = new SqlParameter
+                {
+                    ParameterName = "@id",
+                    Value = id
+                };
+                command.Parameters.Add(idParam);
+
+                var reader = command.ExecuteReader();
+
+                reader.Close();
+            }
         }
     }
 }
