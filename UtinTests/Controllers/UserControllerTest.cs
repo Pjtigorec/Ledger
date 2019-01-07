@@ -6,18 +6,18 @@ using Moq;
 using System.Collections.Generic;
 using System.Web.Mvc;
 
-namespace UnitTests.Controllers
+namespace UtinTests.Controllers
 {
     [TestClass]
-    public class HomeControllerTest
+    public class UserControllerTest
     {
         [TestMethod]
         public void Index()
         {
             var mock = new Mock<IBusinessLogic>();
-            mock.Setup(a => a.Subjects.GetSubjects()).Returns(new List<Subject>());
+            mock.Setup(a => a.Users.GetUsers()).Returns(new List<User>());
 
-            HomeController controller = new HomeController(mock.Object);
+            UsersController controller = new UsersController(mock.Object);
 
             // Act
             ViewResult result = controller.Index() as ViewResult;
