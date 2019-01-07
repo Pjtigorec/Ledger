@@ -139,7 +139,6 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LocationController.cs" />
-    <Compile Include="Controllers\SearchController.cs" />
     <Compile Include="Controllers\UsersController.cs" />
     <Compile Include="DependencyResolution\DefaultRegistry.cs" />
     <Compile Include="DependencyResolution\IoC.cs" />
@@ -237,12 +236,12 @@
     <Content Include="Views\Users\Edit.cshtml" />
     <Content Include="Views\Users\Add.cshtml" />
     <Content Include="Views\Account\ViewAccount.cshtml" />
+    <Content Include="Views\Search\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
     <Folder Include="Views\Default\" />
-    <Folder Include="Views\Search\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

@@ -35,14 +35,14 @@
         <div class="form-group">
             @Html.LabelFor(model => model.Role, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.DropDownListFor(model => model.Role, new SelectList(Model.Roles, "Name"), new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Role, "", new { @class = "text-danger" })
+                @Html.DropDownListFor(model => model.Role, new SelectList(Model.Roles))
             </div>
         </div>
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
                 <input type="submit" value="Сохранить" class="btn btn-outline-success my-2 my-sm-0" />
+                <a href="/Users/Delete/@Model.Id" class="btn btn-outline-danger my-2 my-sm-0">Назад</a>
                 <a href="/Users" class="btn btn-outline-primary my-2 my-sm-0">Назад</a>
             </div>
         </div>

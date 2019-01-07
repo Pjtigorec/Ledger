@@ -22,7 +22,5 @@ namespace Common.AccountModels
         [Display(Name = "Повторить пароль")]
         [Compare("Password", ErrorMessage = "Пароли не совпадают")]
         public string ConfirmPassword { get; set; }
-
-
     }
 }

@@ -17,6 +17,16 @@ namespace Common.Models
         public string Email { get; set; }
 
         [Required]
+        [DataType(DataType.Password)]
+        [Display(Name = "Пароль")]
+        public string Password { get; set; }
+
+        [DataType(DataType.Password)]
+        [Display(Name = "Повторить пароль")]
+        [Compare("Password", ErrorMessage = "Пароли не совпадают")]
+        public string ConfirmPassword { get; set; }
+
+        [Required]
         [Display(Name = "Роль")]
         public string Role { get; set; }
 
@@ -29,6 +39,7 @@ namespace Common.Models
             user.Id = model.Id;
             user.Login = model.Login;
             user.Email = model.Email;
+            user.Password = model.Password;
             user.Role = model.Role;
            
             return user;

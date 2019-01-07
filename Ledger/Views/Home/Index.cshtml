@@ -8,18 +8,27 @@
 <div class="row">
     <div class="col-md-2">
         <h4>Фильтры</h4>
-        <input id="color" name="color" type="radio" value="red" />
-        <span>красный</span> <br />
-        <input id="color" name="color" type="radio" value="blue" />
-        <span>синий</span> <br />
-        <input checked="checked" id="color" name="color" type="radio" value="green" />
-        <span>зеленый</span>
+        <hr />
+        <div class="border">
+            <p>По состоянию</p>
+
+        </div>
+        <hr />
+        <div class="border">
+            <p>По местоположению</p>
+
+        </div>
     </div>
     <div class="col-md-8">
-        <p>@ViewBag.Role</p>
-        <table class="table table-bordered table-striped">
+
+        <div class="form-group">
+            <input type="text" class="form-control pull-right" id="search" placeholder="Поиск по таблице">
+        </div>
+        <hr/>
+
+        <table class="table table-bordered table-striped" id="mytable">
             <thead>
-                <tr>
+                <tr role="row">
                     <th>Имя</th>
                     <th>Номер</th>
                     <th>Описание</th>

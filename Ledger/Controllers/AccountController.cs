@@ -2,6 +2,7 @@
 using Common.AccountModels;
 using Common.Core;
 using System;
+using System.Security.Principal;
 using System.Web.Mvc;
 using System.Web.Security;
 
@@ -42,20 +43,9 @@ namespace Ledger.Controllers
                 if (user != null)
                 {
                     HttpContext.Response.Clear();
+                    
                     FormsAuthentication.SetAuthCookie(user.Login, true);
-                    int time = 10;
-
-                    HttpContext.Response.Cookies["Id"].Value = user.Id.ToString();
-                    HttpContext.Response.Cookies["Id"].Expires = DateTime.Now.AddHours(time);
-
-                    HttpContext.Response.Cookies["Login"].Value = user.Login;
-                    HttpContext.Response.Cookies["Login"].Expires = DateTime.Now.AddHours(time);
-
-                    HttpContext.Response.Cookies["Email"].Value = user.Email;
-                    HttpContext.Response.Cookies["Email"].Expires = DateTime.Now.AddHours(time);
-
-                    HttpContext.Response.Cookies["Role"].Value = user.Role;
-                    HttpContext.Response.Cookies["Role"].Expires = DateTime.Now.AddHours(time);
+                    AddCookie(user);
 
                     return RedirectToAction("Index", "Home");
                 }
@@ -71,8 +61,36 @@ namespace Ledger.Controllers
         public ActionResult LogOff()
         {
             FormsAuthentication.SignOut();
-            HttpContext.Response.Clear();
+            ClearnCookie();
             return RedirectToAction("Index", "Home");
+        }
+
+        private void ClearnCookie()
+        {
+            int time = -10;
+            HttpContext.Response.Cookies["Id"].Expires = DateTime.Now.AddHours(time);
+            HttpContext.Response.Cookies["Login"].Expires = DateTime.Now.AddHours(time);
+            HttpContext.Response.Cookies["Email"].Expires = DateTime.Now.AddHours(time);
+            HttpContext.Response.Cookies["Role"].Expires = DateTime.Now.AddHours(time);
+            HttpContext.Response.Clear();
+        }
+
+        private void AddCookie(User user)
+        {
+            HttpContext.Response.Clear();
+            int time = 10;
+
+            HttpContext.Response.Cookies["Id"].Value = user.Id.ToString();
+            HttpContext.Response.Cookies["Id"].Expires = DateTime.Now.AddHours(time);
+
+            HttpContext.Response.Cookies["Login"].Value = user.Login;
+            HttpContext.Response.Cookies["Login"].Expires = DateTime.Now.AddHours(time);
+
+            HttpContext.Response.Cookies["Email"].Value = user.Email;
+            HttpContext.Response.Cookies["Email"].Expires = DateTime.Now.AddHours(time);
+
+            HttpContext.Response.Cookies["Role"].Value = user.Role;
+            HttpContext.Response.Cookies["Role"].Expires = DateTime.Now.AddHours(time);
         }
     }
 }

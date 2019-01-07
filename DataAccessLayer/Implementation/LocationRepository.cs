@@ -34,7 +34,7 @@ namespace DataAccessLayer.Implementation
                     while (reader.Read())
                     {
                         building.Id = int.Parse(reader["Id"].ToString());
-                        building.Name = reader["Name"].ToString();
+                        building.Name = reader["Name"].ToString().Replace("  ", string.Empty);
                     }
                 }
                 reader.Close();
@@ -62,7 +62,7 @@ namespace DataAccessLayer.Implementation
                         Building building = new Building();
 
                         building.Id = int.Parse(reader["Id"].ToString());
-                        building.Name = reader["Name"].ToString();
+                        building.Name = reader["Name"].ToString().Replace("  ", string.Empty);
 
                         buildings.Add(building);
                     }
@@ -97,7 +97,7 @@ namespace DataAccessLayer.Implementation
                     while (reader.Read())
                     {
                         floot.Id = int.Parse(reader["Id"].ToString());
-                        floot.Name = reader["Name"].ToString();
+                        floot.Name = reader["Name"].ToString().Replace("  ", string.Empty);
                         floot.BuildingId = int.Parse(reader["BuildingId"].ToString());
                     }
                 }
@@ -133,7 +133,7 @@ namespace DataAccessLayer.Implementation
                         Floot floot = new Floot();
 
                         floot.Id = int.Parse(reader["Id"].ToString());
-                        floot.Name = reader["Name"].ToString();
+                        floot.Name = reader["Name"].ToString().Replace("  ", string.Empty);
                         floot.BuildingId = int.Parse(reader["BuildingId"].ToString());
 
                         floots.Add(floot);
@@ -169,7 +169,7 @@ namespace DataAccessLayer.Implementation
                     while (reader.Read())
                     {
                         room.Id = int.Parse(reader["Id"].ToString());
-                        room.Name = reader["Name"].ToString();
+                        room.Name = reader["Name"].ToString().Replace("  ", string.Empty);
                         room.FlootId = int.Parse(reader["FlootId"].ToString());
                     }
                 }
@@ -237,7 +237,7 @@ namespace DataAccessLayer.Implementation
                         Room room = new Room();
 
                         room.Id = int.Parse(reader["Id"].ToString());
-                        room.Name = reader["Name"].ToString();
+                        room.Name = reader["Name"].ToString().Replace("  ", string.Empty);
                         room.FlootId = int.Parse(reader["FlootId"].ToString());
 
                         rooms.Add(room);

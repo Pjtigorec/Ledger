@@ -1,7 +1,9 @@
 ﻿using BusinessLogicLayer.Interfaces;
 using Common.Core;
+using Common.Interfaces;
 using Common.Models;
 using Ledger.Attributes;
+using System.Collections.Generic;
 using System.Web.Mvc;
 
 namespace Ledger.Controllers
@@ -17,8 +19,7 @@ namespace Ledger.Controllers
         }
 
         public ActionResult Index()
-        {
-            ViewBag.Role = HttpContext.Request.Cookies["Role"].Value;
+        {           
             return View(_db.Subjects.GetSubjects());
         }
 
@@ -38,6 +39,7 @@ namespace Ledger.Controllers
         {
             Subject subject = _db.Subjects.GetSubjectById(id);
             SubjectModel model = SubjectModel.ConvertSubjectToModel(subject);
+            model.States = _db.Subjects.GetAllStates();
 
             return View(model);
         }
@@ -47,11 +49,13 @@ namespace Ledger.Controllers
             if (ModelState.IsValid)
             {
                 Subject subject = SubjectModel.ConvertModelToSubject(model);
+                subject.Id = model.Id;
 
-                _db.Subjects.Create(subject);
+                _db.Subjects.Update(subject);
 
                 return RedirectToAction("Index", "Home");
             }
+            model.States = _db.Subjects.GetAllStates();
             return View(model);
         }
         
@@ -75,7 +79,7 @@ namespace Ledger.Controllers
 
                 return RedirectToAction("Index", "Home");
             }
-
+            model.States = _db.Subjects.GetAllStates();
             return View(model);
         }
 

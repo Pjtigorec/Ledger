@@ -8,7 +8,7 @@
 
 @using (Html.BeginForm()) 
 {
-    @Html.AntiForgeryToken()
+    @Html.AntiForgeryToken()    
     
     <div class="form-horizontal">
         <hr />
@@ -38,10 +38,9 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.StateId, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.ValidationMessageFor(model => model.StateId, "", new { @class = "text-danger" })
             <div class="col-md-10">
                 @Html.DropDownListFor(model => model.StateId, new SelectList(Model.States, "Id", "Name"))
-                @Html.ValidationMessageFor(model => model.StateId, "", new { @class = "text-danger" })
             </div>
         </div>
 

@@ -12,7 +12,7 @@ namespace DataAccessLayer.Implementation
         public User LoginUser(LoginModel model)
         {
             string sqlExpression = "sp_LoginUser";
-            User user = new User();
+            User user = null;
 
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
@@ -40,6 +40,7 @@ namespace DataAccessLayer.Implementation
                 {
                     while (reader.Read())
                     {
+                        user = new User();
                         user.Id = int.Parse(reader["Id"].ToString());
                         user.Login = reader["Login"].ToString();
                         user.Email = reader["Email"].ToString();

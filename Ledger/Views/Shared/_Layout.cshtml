@@ -7,6 +7,7 @@
     <title>@ViewBag.Title – приложение ASP.NET</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
 </head>
 <body>
     <div id="modDialog" class="modal fade">
@@ -23,12 +24,6 @@
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
                     <a class="nav-link" href="/Home/About">О программе <span class="sr-only">(current)</span></a>
-                </li>
-                <li>
-                    <form class="form-inline my-2 my-lg-0">
-                        <input id="searchText" class="form-control mr-sm-2" type="text" placeholder="Поиск" aria-label="Search">
-                        <button id="findTable" class="btn btn-outline-success my-2 my-sm-0" type="submit">Найти</button>
-                    </form>
                 </li>
             </ul>
         </div>
@@ -50,6 +45,7 @@
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", false)
+
     <script type="text/javascript">
 
         $(function () {
@@ -117,5 +113,22 @@
              });
          })
     </script>
+
+    <script>
+        $(document).ready(function () {
+            $("#search").keyup(function () {
+                _this = this;
+
+                $.each($("#mytable tbody tr"), function () {
+                    if ($(this).text().toLowerCase().indexOf($(_this).val().toLowerCase()) === -1) {
+                        $(this).hide();
+                    } else {
+                        $(this).show();
+                    }
+                });
+            });
+        });
+    </script>
+
 </body>
 </html>

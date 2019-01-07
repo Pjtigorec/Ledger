@@ -23,6 +23,7 @@ namespace Common.Models
         [Required]
         [Display(Name = "Состояние")]
         public int StateId { get; set; }
+
         public List<State> States { get; set; }
         public string StateName { get; set; }
 

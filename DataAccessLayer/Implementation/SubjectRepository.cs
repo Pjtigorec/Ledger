@@ -29,9 +29,9 @@ namespace DataAccessLayer.Implementation
                         Subject subject = new Subject();
 
                         subject.Id = int.Parse(reader["Id"].ToString());
-                        subject.Name = reader["Name"].ToString();
-                        subject.InventoryNumber = reader["InventoryNumber"].ToString();
-                        subject.Description = reader["Description"].ToString();
+                        subject.Name = reader["Name"].ToString().Replace("  ", string.Empty);
+                        subject.InventoryNumber = reader["InventoryNumber"].ToString().Replace("  ", string.Empty);
+                        subject.Description = reader["Description"].ToString().Replace("  ", string.Empty);
                         subject.StateId = int.Parse(reader["StateId"].ToString());
                         subject.RoomId = int.Parse(reader["RoomId"].ToString());
 
@@ -69,9 +69,9 @@ namespace DataAccessLayer.Implementation
                     while (reader.Read())
                     { 
                         subject.Id = int.Parse(reader["Id"].ToString());
-                        subject.Name = reader["Name"].ToString();
-                        subject.InventoryNumber = reader["InventoryNumber"].ToString();
-                        subject.Description = reader["Description"].ToString();
+                        subject.Name = reader["Name"].ToString().Replace("  ", string.Empty);
+                        subject.InventoryNumber = reader["InventoryNumber"].ToString().Replace("  ", string.Empty);
+                        subject.Description = reader["Description"].ToString().Replace("  ", string.Empty);
                         subject.StateId = int.Parse(reader["StateId"].ToString());
                         subject.RoomId = int.Parse(reader["RoomId"].ToString());
                     }
@@ -92,12 +92,6 @@ namespace DataAccessLayer.Implementation
                 SqlCommand command = new SqlCommand(sqlExpression, connection);
                 command.CommandType = System.Data.CommandType.StoredProcedure;
 
-                SqlParameter idParam = new SqlParameter
-                {
-                    ParameterName = "@id",
-                    Value = subject.Id
-                };
-                command.Parameters.Add(idParam);
                 SqlParameter nameParam = new SqlParameter
                 {
                     ParameterName = "@name",
@@ -112,7 +106,7 @@ namespace DataAccessLayer.Implementation
                 command.Parameters.Add(inventoryNumberParam);
                 SqlParameter descriptionParam = new SqlParameter
                 {
-                    ParameterName = "@descriptionNumber",
+                    ParameterName = "@description",
                     Value = subject.Description
                 };
                 command.Parameters.Add(descriptionParam);
@@ -128,12 +122,6 @@ namespace DataAccessLayer.Implementation
                     Value = subject.RoomId
                 };
                 command.Parameters.Add(roomIdParam);
-                SqlParameter imageIdParam = new SqlParameter
-                {
-                    ParameterName = "@imageIdd",
-                    Value = subject.Id
-                };
-                command.Parameters.Add(imageIdParam);
 
                 var reader = command.ExecuteReader();
 
@@ -171,7 +159,7 @@ namespace DataAccessLayer.Implementation
                 command.Parameters.Add(inventoryNumberParam);
                 SqlParameter descriptionParam = new SqlParameter
                 {
-                    ParameterName = "@descriptionNumber",
+                    ParameterName = "@description",
                     Value = subject.Description
                 };
                 command.Parameters.Add(descriptionParam);
@@ -187,12 +175,7 @@ namespace DataAccessLayer.Implementation
                     Value = subject.RoomId
                 };
                 command.Parameters.Add(roomIdParam);
-                SqlParameter imageIdParam = new SqlParameter
-                {
-                    ParameterName = "@imageIdd",
-                    Value = subject.Id
-                };
-                command.Parameters.Add(imageIdParam);
+                
 
                 var reader = command.ExecuteReader();
 
@@ -248,7 +231,7 @@ namespace DataAccessLayer.Implementation
                     while (reader.Read())
                     {
                         state.Id = int.Parse(reader["Id"].ToString());
-                        state.Name = reader["Name"].ToString();
+                        state.Name = reader["Name"].ToString().Replace("  ", string.Empty);
                     }
                 }
                 reader.Close();
@@ -276,7 +259,7 @@ namespace DataAccessLayer.Implementation
                         State state = new State();
 
                         state.Id = int.Parse(reader["Id"].ToString());
-                        state.Name = reader["Name"].ToString();
+                        state.Name = reader["Name"].ToString().Replace("  ", string.Empty);
 
                         states.Add(state);
                     }

@@ -1,4 +1,5 @@
 ﻿using BusinessLogicLayer.Interfaces;
+using Common.AccountModels;
 using Common.Core;
 using Common.Models;
 using System.Collections.Generic;
@@ -43,13 +44,16 @@ namespace Ledger.Controllers
                 _db.Users.Update(user);
                 return RedirectToAction("Index", "Users");
             }
+            model.Roles = new List<string> { "User", "Moderator", "Admin" };
             return View(model);
         }
 
         [HttpGet]
         public ActionResult Add()
         {
-            return View(new UserModel());
+            UserModel model = new UserModel();
+            model.Roles = new List<string> { "User", "Moderator", "Admin" };
+            return View(model);
         }
         [HttpPost]
         public ActionResult Add(UserModel model)
@@ -60,7 +64,7 @@ namespace Ledger.Controllers
                 _db.Users.Create(user);
                 return RedirectToAction("Index", "Users");
             }
-
+            model.Roles = new List<string> { "User", "Moderator", "Admin" };
             return View(model);
         }
 
