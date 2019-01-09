@@ -210,3 +210,7 @@ C:\Users\Roman\Documents\GitHub\Ledger\Ledger\obj\Debug\Ledger.csproj.CoreCompil
 C:\Users\Roman\Documents\GitHub\Ledger\Ledger\obj\Debug\Ledger.csproj.CopyComplete
 C:\Users\Roman\Documents\GitHub\Ledger\Ledger\obj\Debug\Ledger.dll
 C:\Users\Roman\Documents\GitHub\Ledger\Ledger\obj\Debug\Ledger.pdb
+C:\Users\Roman\Documents\GitHub\Ledger\Ledger\bin\log4net.dll
+C:\Users\Roman\Documents\GitHub\Ledger\Ledger\bin\log4net.xml
+C:\Users\Roman\Documents\GitHub\Ledger\Ledger\bin\Logs.dll
+C:\Users\Roman\Documents\GitHub\Ledger\Ledger\bin\Logs.pdb

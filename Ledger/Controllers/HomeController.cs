@@ -1,9 +1,9 @@
 ﻿using BusinessLogicLayer.Interfaces;
 using Common.Core;
-using Common.Interfaces;
 using Common.Models;
 using Ledger.Attributes;
-using System.Collections.Generic;
+using Logs;
+using System.Web;
 using System.Web.Mvc;
 
 namespace Ledger.Controllers
@@ -16,10 +16,12 @@ namespace Ledger.Controllers
         public HomeController(IBusinessLogic db)
         {
             _db = db;
+            Logger.InitLogger();
         }
 
         public ActionResult Index()
-        {           
+        {
+            Logger.Log.Info("Первый заход");
             return View(_db.Subjects.GetSubjects());
         }
 
@@ -69,7 +71,7 @@ namespace Ledger.Controllers
             return View(model);
         }
         [HttpPost]
-        public ActionResult Add(SubjectModel model)
+        public ActionResult Add(SubjectModel model, HttpPostedFileBase upload)
         {
             if (ModelState.IsValid)
             {

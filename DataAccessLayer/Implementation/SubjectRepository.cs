@@ -1,5 +1,7 @@
 ﻿using Common.Core;
 using Common.Interfaces;
+using Logs;
+using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 
@@ -20,27 +22,38 @@ namespace DataAccessLayer.Implementation
                 SqlCommand command = new SqlCommand(sqlExpression, connection);
                 command.CommandType = System.Data.CommandType.StoredProcedure;
 
-                var reader = command.ExecuteReader();
-
-                if (reader.HasRows)
+                try
                 {
-                    while (reader.Read())
+                    var reader = command.ExecuteReader();
+
+                    if (reader.HasRows)
                     {
-                        Subject subject = new Subject();
+                        while (reader.Read())
+                        {
+                            Subject subject = new Subject();
 
-                        subject.Id = int.Parse(reader["Id"].ToString());
-                        subject.Name = reader["Name"].ToString().Replace("  ", string.Empty);
-                        subject.InventoryNumber = reader["InventoryNumber"].ToString().Replace("  ", string.Empty);
-                        subject.Description = reader["Description"].ToString().Replace("  ", string.Empty);
-                        subject.StateId = int.Parse(reader["StateId"].ToString());
-                        subject.RoomId = int.Parse(reader["RoomId"].ToString());
+                            subject.Id = int.Parse(reader["Id"].ToString());
+                            subject.Name = reader["Name"].ToString().Replace("  ", string.Empty);
+                            subject.InventoryNumber = reader["InventoryNumber"].ToString().Replace("  ", string.Empty);
+                            subject.Description = reader["Description"].ToString().Replace("  ", string.Empty);
+                            subject.StateId = int.Parse(reader["StateId"].ToString());
+                            subject.RoomId = int.Parse(reader["RoomId"].ToString());
 
-                        subjects.Add(subject);
+                            subjects.Add(subject);
+                        }
                     }
+                    reader.Close();
+                    Logger.Log.Info("Стащили все объекты");
                 }
-                reader.Close();
+                catch(ArgumentNullException ex)
+                {
+                    Logger.Log.Error("При попытке взять из бд все объекты - ArgumentNullException. Подробности: " + ex.Message);
+                }
+                catch (Exception ex)
+                {
+                    Logger.Log.Error("При попытке взять из бд все объекты - Exception. Подробности: " + ex.Message);
+                }
             }
-
             return subjects;
         }
 
@@ -123,9 +136,16 @@ namespace DataAccessLayer.Implementation
                 };
                 command.Parameters.Add(roomIdParam);
 
-                var reader = command.ExecuteReader();
-
-                reader.Close();
+                try
+                {
+                    var reader = command.ExecuteReader();
+                    reader.Close();
+                    Logger.Log.Info("Создан объект");
+                }
+                catch(Exception ex)
+                {
+                    Logger.Log.Error("При попытки создать новую запись для объектов - Exception. Подробности: " + ex.Message);
+                }
             }
         }
 

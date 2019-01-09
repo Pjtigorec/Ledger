@@ -30,8 +30,11 @@ namespace Common.Models
         [Required]
         [Display(Name = "Кабинет")]
         public int RoomId { get; set; }
+
         public List<Room> Rooms { get; set; }
         public string RoomName { get; set; }
+
+        public string Image { get; set; }
 
         public static Subject ConvertModelToSubject(SubjectModel model)
         {

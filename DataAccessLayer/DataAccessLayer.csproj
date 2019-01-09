@@ -31,6 +31,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="log4net">
+      <HintPath>..\packages\log4net.2.0.8\lib\net45-full\log4net.dll</HintPath>
+    </Reference>
     <Reference Include="StructureMap, Version=4.7.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\StructureMap.4.7.0\lib\net45\StructureMap.dll</HintPath>
     </Reference>
@@ -60,9 +63,14 @@
       <Project>{7BB9524F-C45C-43D0-9CE0-D1EFE2D04F15}</Project>
       <Name>Common</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Logs\Logs.csproj">
+      <Project>{76EEABA2-47AD-46E5-8766-3D0F62992B30}</Project>
+      <Name>Logs</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

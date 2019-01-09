@@ -1,0 +1,9 @@
+C:\Users\Roman\Documents\GitHub\Ledger\Logs\bin\Debug\Logs.dll
+C:\Users\Roman\Documents\GitHub\Ledger\Logs\bin\Debug\Logs.pdb
+C:\Users\Roman\Documents\GitHub\Ledger\Logs\bin\Debug\log4net.dll
+C:\Users\Roman\Documents\GitHub\Ledger\Logs\bin\Debug\log4net.xml
+C:\Users\Roman\Documents\GitHub\Ledger\Logs\obj\Debug\Logs.csproj.CoreCompileInputs.cache
+C:\Users\Roman\Documents\GitHub\Ledger\Logs\obj\Debug\Logs.csproj.CopyComplete
+C:\Users\Roman\Documents\GitHub\Ledger\Logs\obj\Debug\Logs.dll
+C:\Users\Roman\Documents\GitHub\Ledger\Logs\obj\Debug\Logs.pdb
+C:\Users\Roman\Documents\GitHub\Ledger\Logs\obj\Debug\Logs.csprojAssemblyReference.cache

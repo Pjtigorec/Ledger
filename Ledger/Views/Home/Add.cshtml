@@ -6,7 +6,7 @@
 
 <h2>Добавить</h2>
 
-@using (Html.BeginForm()) 
+@using (Html.BeginForm(new { enctype = "multipart/form-data" }))
 {
     @Html.AntiForgeryToken()    
     
