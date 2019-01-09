@@ -20,3 +20,7 @@ C:\Users\Roman\Documents\GitHub\Ledger\DataAccessLayer\obj\Debug\DataAccessLayer
 C:\Users\Roman\Documents\GitHub\Ledger\DataAccessLayer\obj\Debug\DataAccessLayer.csproj.CopyComplete
 C:\Users\Roman\Documents\GitHub\Ledger\DataAccessLayer\obj\Debug\DataAccessLayer.dll
 C:\Users\Roman\Documents\GitHub\Ledger\DataAccessLayer\obj\Debug\DataAccessLayer.pdb
+C:\Users\Roman\Documents\GitHub\Ledger\DataAccessLayer\bin\Debug\log4net.dll
+C:\Users\Roman\Documents\GitHub\Ledger\DataAccessLayer\bin\Debug\Logs.dll
+C:\Users\Roman\Documents\GitHub\Ledger\DataAccessLayer\bin\Debug\Logs.pdb
+C:\Users\Roman\Documents\GitHub\Ledger\DataAccessLayer\bin\Debug\log4net.xml

@@ -24,3 +24,7 @@ C:\Users\Roman\Documents\GitHub\Ledger\BusinessLogicLayer\obj\Debug\BusinessLogi
 C:\Users\Roman\Documents\GitHub\Ledger\BusinessLogicLayer\obj\Debug\BusinessLogicLayer.csproj.CopyComplete
 C:\Users\Roman\Documents\GitHub\Ledger\BusinessLogicLayer\obj\Debug\BusinessLogicLayer.dll
 C:\Users\Roman\Documents\GitHub\Ledger\BusinessLogicLayer\obj\Debug\BusinessLogicLayer.pdb
+C:\Users\Roman\Documents\GitHub\Ledger\BusinessLogicLayer\bin\Debug\Logs.dll
+C:\Users\Roman\Documents\GitHub\Ledger\BusinessLogicLayer\bin\Debug\log4net.dll
+C:\Users\Roman\Documents\GitHub\Ledger\BusinessLogicLayer\bin\Debug\Logs.pdb
+C:\Users\Roman\Documents\GitHub\Ledger\BusinessLogicLayer\bin\Debug\log4net.xml
