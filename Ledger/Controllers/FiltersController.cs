@@ -19,18 +19,24 @@ namespace Ledger.Controllers
             this.db = db;
         }
 
-        [HttpGet]
         public ActionResult Index()
         {
             Filters filter = new Filters();
             filter.States = db.Subjects.GetAllStates();
-            filter.Buildings = db.Locations.GetBuildings();
             return PartialView(filter);
         }
-        [HttpPost]
-        public ActionResult Index(string state, string buildings)
+
+        [HttpGet]
+        public ActionResult FilerState(int stateId)
         {
-            return RedirectToAction("Index", "Home", new List<Subject>());
+            var state = db.Subjects.GetAllStates().Find(s => s.Id == stateId);
+
+            if (state != null)
+            {
+                return PartialView(db.Subjects.GetSubjects().FindAll(s => s.StateId == state.Id));
+            }
+
+            return PartialView(db.Subjects.GetSubjects());
         }
     }
 }

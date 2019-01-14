@@ -9,51 +9,114 @@
 //------------------------------------------------------------------------------
 
 namespace Ledger.SpamServices {
+    using System.Runtime.Serialization;
+    using System;
     
     
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="SpamServices.ISpam")]
-    public interface ISpam {
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Spam", Namespace="http://schemas.datacontract.org/2004/07/SpamServices.Models")]
+    [System.SerializableAttribute()]
+    public partial class Spam : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISpam/GetSpam", ReplyAction="http://tempuri.org/ISpam/GetSpamResponse")]
-        string GetSpam();
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISpam/GetSpam", ReplyAction="http://tempuri.org/ISpam/GetSpamResponse")]
-        System.Threading.Tasks.Task<string> GetSpamAsync();
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private byte[] ImageField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string TypeField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public byte[] Image {
+            get {
+                return this.ImageField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ImageField, value) != true)) {
+                    this.ImageField = value;
+                    this.RaisePropertyChanged("Image");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Type {
+            get {
+                return this.TypeField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TypeField, value) != true)) {
+                    this.TypeField = value;
+                    this.RaisePropertyChanged("Type");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public interface ISpamChannel : Ledger.SpamServices.ISpam, System.ServiceModel.IClientChannel {
+    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="SpamServices.ISpamServices")]
+    public interface ISpamServices {
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISpamServices/GetSpam", ReplyAction="http://tempuri.org/ISpamServices/GetSpamResponse")]
+        Ledger.SpamServices.Spam GetSpam();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISpamServices/GetSpam", ReplyAction="http://tempuri.org/ISpamServices/GetSpamResponse")]
+        System.Threading.Tasks.Task<Ledger.SpamServices.Spam> GetSpamAsync();
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public interface ISpamServicesChannel : Ledger.SpamServices.ISpamServices, System.ServiceModel.IClientChannel {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class SpamClient : System.ServiceModel.ClientBase<Ledger.SpamServices.ISpam>, Ledger.SpamServices.ISpam {
+    public partial class SpamServicesClient : System.ServiceModel.ClientBase<Ledger.SpamServices.ISpamServices>, Ledger.SpamServices.ISpamServices {
         
-        public SpamClient() {
+        public SpamServicesClient() {
         }
         
-        public SpamClient(string endpointConfigurationName) : 
+        public SpamServicesClient(string endpointConfigurationName) : 
                 base(endpointConfigurationName) {
         }
         
-        public SpamClient(string endpointConfigurationName, string remoteAddress) : 
+        public SpamServicesClient(string endpointConfigurationName, string remoteAddress) : 
                 base(endpointConfigurationName, remoteAddress) {
         }
         
-        public SpamClient(string endpointConfigurationName, System.ServiceModel.EndpointAddress remoteAddress) : 
+        public SpamServicesClient(string endpointConfigurationName, System.ServiceModel.EndpointAddress remoteAddress) : 
                 base(endpointConfigurationName, remoteAddress) {
         }
         
-        public SpamClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
+        public SpamServicesClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
                 base(binding, remoteAddress) {
         }
         
-        public string GetSpam() {
+        public Ledger.SpamServices.Spam GetSpam() {
             return base.Channel.GetSpam();
         }
         
-        public System.Threading.Tasks.Task<string> GetSpamAsync() {
+        public System.Threading.Tasks.Task<Ledger.SpamServices.Spam> GetSpamAsync() {
             return base.Channel.GetSpamAsync();
         }
     }

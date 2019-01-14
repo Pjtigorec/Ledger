@@ -1,0 +1,12 @@
+﻿@model IEnumerable<Common.Core.Subject>
+
+<tbody id="tbody">
+    @foreach (var v in Model)
+    {
+        <tr>
+            <td><a href="/Home/Details/@v.Id" class="compItem" data-toggle="modal">@v.Name</a></td>
+            <td>@v.InventoryNumber</td>
+            <td>@v.Description</td>
+        </tr>
+    }
+</tbody>

@@ -161,12 +161,14 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Filters.cs" />
-    <Compile Include="Models\Spam.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Connected Services\SpamServices\configuration91.svcinfo" />
     <None Include="Connected Services\SpamServices\configuration.svcinfo" />
+    <Content Include="Connected Services\SpamServices\Ledger.SpamServices.Spam.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
     <None Include="Connected Services\SpamServices\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
@@ -180,7 +182,6 @@
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
-    <Content Include="Images\first.jpg" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
     <Content Include="Scripts\bootstrap.js" />
@@ -208,6 +209,9 @@
       <SubType>Designer</SubType>
     </None>
     <None Include="Connected Services\SpamServices\service1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\SpamServices\SpamServices.Models.xsd">
       <SubType>Designer</SubType>
     </None>
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
@@ -266,10 +270,9 @@
     <Content Include="Views\Users\Add.cshtml" />
     <Content Include="Views\Account\ViewAccount.cshtml" />
     <Content Include="Views\Search\Index.cshtml" />
-    <Content Include="Views\Advertising\Index.cshtml" />
-    <Content Include="Views\Filters\State.cshtml" />
-    <Content Include="Views\Filters\Buildings.cshtml" />
     <Content Include="Views\Filters\Index.cshtml" />
+    <Content Include="Views\Advertising\Index.cshtml" />
+    <Content Include="Views\Filters\FilerState.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

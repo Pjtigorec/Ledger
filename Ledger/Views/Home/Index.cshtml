@@ -10,7 +10,7 @@
     @Html.Action("Index", "Filters")
     
     <div class="col-md-8">
-
+        <p id="test">Ничего</p>
         <div class="form-group">
             <input type="text" class="form-control pull-right" id="search" placeholder="Поиск по таблице">
         </div>
@@ -24,7 +24,7 @@
                     <th>Описание</th>
                 </tr>
             </thead>
-            <tbody>
+            <tbody id="tbodySibjects">
                 @foreach (var v in Model)
                 {
                     <tr>

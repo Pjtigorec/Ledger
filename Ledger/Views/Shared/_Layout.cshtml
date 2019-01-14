@@ -129,5 +129,23 @@
             });
         });
     </script>
+
+    <script type="text/javascript">
+        $(function ()
+        {
+            $('#states').change(function ()
+            {
+                var id = $(this).val();
+                $.ajax({
+                    type: 'GET',
+                    url: '@Url.Action("FilerState", "Filters")/' + id,
+                    success: function (data)
+                    {
+                        $('#tbodySibjects').replaceWith(data);
+                    }
+                });
+             });
+         })
+    </script>
 </body>
 </html>

@@ -6,12 +6,18 @@ namespace Ledger.Controllers
 {
     public class AdvertisingController : Controller
     {
-        // GET: Advertising
         public ActionResult Index()
         {
-            SpamClient spam = new SpamClient();
-            Spam model = new Spam { Text = spam.GetSpam(), Href = "#" };
-            return PartialView(model);
+            return PartialView();
+        }
+
+        public ActionResult GetSpam()
+        {
+            SpamServicesClient spam = new SpamServicesClient();
+
+            var image = spam.GetSpam();
+
+            return File(image.Image, image.Type);
         }
     }
 }

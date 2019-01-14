@@ -5,7 +5,7 @@ VisualStudioVersion = 15.0.28307.168
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ledger", "Ledger\Ledger.csproj", "{E24DBE14-A93F-4BDF-AEA0-566B305211E1}"
 	ProjectSection(ProjectDependencies) = postProject
-		{32A3562F-EA71-453E-BB60-CF533E22FAB7} = {32A3562F-EA71-453E-BB60-CF533E22FAB7}
+		{D73289AC-256F-4708-A1C6-5A81CBD299EE} = {D73289AC-256F-4708-A1C6-5A81CBD299EE}
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Common", "Common\Common.csproj", "{7BB9524F-C45C-43D0-9CE0-D1EFE2D04F15}"
@@ -20,7 +20,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UtinTests", "UtinTests\Utin
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Logs", "Logs\Logs.csproj", "{76EEABA2-47AD-46E5-8766-3D0F62992B30}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpamServices", "SpamServices\SpamServices.csproj", "{32A3562F-EA71-453E-BB60-CF533E22FAB7}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpamServices", "SpamServices\SpamServices.csproj", "{D73289AC-256F-4708-A1C6-5A81CBD299EE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -56,10 +56,10 @@ Global
 		{76EEABA2-47AD-46E5-8766-3D0F62992B30}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{76EEABA2-47AD-46E5-8766-3D0F62992B30}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{76EEABA2-47AD-46E5-8766-3D0F62992B30}.Release|Any CPU.Build.0 = Release|Any CPU
-		{32A3562F-EA71-453E-BB60-CF533E22FAB7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{32A3562F-EA71-453E-BB60-CF533E22FAB7}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{32A3562F-EA71-453E-BB60-CF533E22FAB7}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{32A3562F-EA71-453E-BB60-CF533E22FAB7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D73289AC-256F-4708-A1C6-5A81CBD299EE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D73289AC-256F-4708-A1C6-5A81CBD299EE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D73289AC-256F-4708-A1C6-5A81CBD299EE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D73289AC-256F-4708-A1C6-5A81CBD299EE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

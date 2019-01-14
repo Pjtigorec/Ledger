@@ -4,6 +4,7 @@ using Common.Models;
 using Ledger.Attributes;
 using Logs;
 using System.Collections.Generic;
+using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
@@ -24,11 +25,6 @@ namespace Ledger.Controllers
         {
             Logger.Log.Info("Первый заход");
             return View(db.Subjects.GetSubjects());
-        }
-
-        public ActionResult Index(List<Subject> subjects)
-        {
-            return View(subjects);
         }
 
         [HttpGet]
