@@ -1,6 +1,7 @@
 ﻿using Common.AccountModels;
 using Common.Core;
 using Common.Interfaces;
+using System.Collections.Generic;
 using System.Data.SqlClient;
 
 namespace DataAccessLayer.Implementation
@@ -14,25 +15,22 @@ namespace DataAccessLayer.Implementation
             string sqlExpression = "sp_LoginUser";
             User user = null;
 
+            Dictionary<string, string> parameters = new Dictionary<string, string>()
+            {
+                { "@login", model.Login },
+                { "@password", model.Password },
+            };
+
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 connection.Open();
                 SqlCommand command = new SqlCommand(sqlExpression, connection);
                 command.CommandType = System.Data.CommandType.StoredProcedure;
 
-                SqlParameter loginParam = new SqlParameter
+                foreach (var v in parameters)
                 {
-                    ParameterName = "@login",
-                    Value = model.Login
-                };
-                command.Parameters.Add(loginParam);
-
-                SqlParameter passwordParam = new SqlParameter
-                {
-                    ParameterName = "@password",
-                    Value = model.Password
-                };
-                command.Parameters.Add(passwordParam);
+                    command.Parameters.Add(new SqlParameter { ParameterName = v.Key, Value = v.Value });
+                }
 
                 var reader = command.ExecuteReader();
 

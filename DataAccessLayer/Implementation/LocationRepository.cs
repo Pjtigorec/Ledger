@@ -1,6 +1,7 @@
 ﻿using Common.Core;
 using Common.Interfaces;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 
 namespace DataAccessLayer.Implementation
@@ -13,6 +14,7 @@ namespace DataAccessLayer.Implementation
         {
             string sqlExpression = "sp_GetBuilding";
             Building building = new Building();
+            
 
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
@@ -212,14 +214,14 @@ namespace DataAccessLayer.Implementation
 
         public List<Room> GetRooms(int flootId)
         {
-            string sqlExpression = "sp_GetRooms";
-            List<Room> rooms = new List<Room>();
+            var sqlExpression = "sp_GetRooms";
+            var rooms = new List<Room>();
 
-            using (SqlConnection connection = new SqlConnection(connectionString))
+            using (var connection = new SqlConnection(connectionString))
             {
                 connection.Open();
                 SqlCommand command = new SqlCommand(sqlExpression, connection);
-                command.CommandType = System.Data.CommandType.StoredProcedure;
+                command.CommandType = CommandType.StoredProcedure;
 
                 SqlParameter idParam = new SqlParameter
                 {
@@ -237,7 +239,7 @@ namespace DataAccessLayer.Implementation
                         Room room = new Room();
 
                         room.Id = int.Parse(reader["Id"].ToString());
-                        room.Name = reader["Name"].ToString().Replace("  ", string.Empty);
+                        room.Name = reader["Name"].ToString().Replace("  ", string.Empty).Trim();
                         room.FlootId = int.Parse(reader["FlootId"].ToString());
 
                         rooms.Add(room);

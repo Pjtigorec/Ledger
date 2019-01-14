@@ -3,6 +3,7 @@ using Common.Core;
 using Common.Models;
 using Ledger.Attributes;
 using Logs;
+using System.Collections.Generic;
 using System.Web;
 using System.Web.Mvc;
 
@@ -11,27 +12,32 @@ namespace Ledger.Controllers
     [User]
     public class HomeController : Controller
     {
-        IBusinessLogic _db;
+        IBusinessLogic db;
 
         public HomeController(IBusinessLogic db)
         {
-            _db = db;
+            this.db = db;
             Logger.InitLogger();
         }
 
         public ActionResult Index()
         {
             Logger.Log.Info("Первый заход");
-            return View(_db.Subjects.GetSubjects());
+            return View(db.Subjects.GetSubjects());
+        }
+
+        public ActionResult Index(List<Subject> subjects)
+        {
+            return View(subjects);
         }
 
         [HttpGet]
         public ActionResult Details(int id)
         {
-            Subject subject = _db.Subjects.GetSubjectById(id);
+            Subject subject = db.Subjects.GetSubjectById(id);
             SubjectModel model = SubjectModel.ConvertSubjectToModel(subject);
-            model.StateName = _db.Subjects.GetSubjectState(subject.StateId).Name;
-            model.RoomName = _db.Locations.GetRoom(subject.RoomId).Name;
+            model.StateName = db.Subjects.GetSubjectState(subject.StateId).Name;
+            model.RoomName = db.Locations.GetRoom(subject.RoomId).Name;
 
             return PartialView(model);
         }
@@ -39,9 +45,9 @@ namespace Ledger.Controllers
         [HttpGet]
         public ActionResult Edit(int id)
         {
-            Subject subject = _db.Subjects.GetSubjectById(id);
+            Subject subject = db.Subjects.GetSubjectById(id);
             SubjectModel model = SubjectModel.ConvertSubjectToModel(subject);
-            model.States = _db.Subjects.GetAllStates();
+            model.States = db.Subjects.GetAllStates();
 
             return View(model);
         }
@@ -53,11 +59,11 @@ namespace Ledger.Controllers
                 Subject subject = SubjectModel.ConvertModelToSubject(model);
                 subject.Id = model.Id;
 
-                _db.Subjects.Update(subject);
+                db.Subjects.Update(subject);
 
                 return RedirectToAction("Index", "Home");
             }
-            model.States = _db.Subjects.GetAllStates();
+            model.States = db.Subjects.GetAllStates();
             return View(model);
         }
         
@@ -66,7 +72,7 @@ namespace Ledger.Controllers
         {
             SubjectModel model = new SubjectModel();
 
-            model.States = _db.Subjects.GetAllStates();
+            model.States = db.Subjects.GetAllStates();
 
             return View(model);
         }
@@ -77,11 +83,11 @@ namespace Ledger.Controllers
             {
                 Subject subject = SubjectModel.ConvertModelToSubject(model);
 
-                _db.Subjects.Create(subject);
+                db.Subjects.Create(subject);
 
                 return RedirectToAction("Index", "Home");
             }
-            model.States = _db.Subjects.GetAllStates();
+            model.States = db.Subjects.GetAllStates();
             return View(model);
         }
 
@@ -95,7 +101,7 @@ namespace Ledger.Controllers
 
         public ActionResult Delete(int id)
         {
-            _db.Subjects.Delete(id);
+            db.Subjects.Delete(id);
             return RedirectToAction("Index", "Home");
         }
     }

@@ -1,0 +1,27 @@
+﻿@model Ledger.Models.Filters
+
+<div class="col-md-2">
+    <form action="Filters/Index" method="post">
+        <h4>Фильтры</h4>
+        <hr />
+        <div class="border">
+            <p>По состоянию</p>
+            <div class="col-10">
+                @Html.Partial("State", Model.States)
+            </div>
+        </div>
+        <hr />
+        <div class="border">
+            <p>По местоположению</p>
+            <div class="col-10">
+                @Html.Partial("Buildings", Model.Buildings)
+            </div>
+        </div>
+        <div class="border">
+            <input type="submit" value="Выбрать" />
+        </div>
+    </form>
+    <div>
+        @Html.Action("Index", "Advertising")
+    </div>
+</div>

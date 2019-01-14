@@ -1,0 +1,9 @@
+﻿@model List<Common.Core.State>
+
+@Html.RadioButton("state", "Нет", true)
+<span>Нет</span> <br />
+@foreach (var v in Model)
+{
+    @Html.RadioButton("state", v.Name)
+    <span>@v.Name</span> <br />
+}

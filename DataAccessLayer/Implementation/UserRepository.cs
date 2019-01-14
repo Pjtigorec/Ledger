@@ -82,39 +82,24 @@ namespace DataAccessLayer.Implementation
         {
             string sqlExpression = "sp_CreateUser";
 
+            Dictionary<string, string> parameters = new Dictionary<string, string>()
+            {
+                { "@login", user.Login },
+                { "@email", user.Email },
+                { "@password", user.Password },
+                { "@role", user.Role },
+            };
+
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 connection.Open();
                 SqlCommand command = new SqlCommand(sqlExpression, connection);
                 command.CommandType = System.Data.CommandType.StoredProcedure;
 
-                SqlParameter loginParam = new SqlParameter
+                foreach (var v in parameters)
                 {
-                    ParameterName = "@login",
-                    Value = user.Login
-                };
-                command.Parameters.Add(loginParam);
-
-                SqlParameter emailparam = new SqlParameter
-                {
-                    ParameterName = "@email",
-                    Value = user.Email
-                };
-                command.Parameters.Add(emailparam);
-
-                SqlParameter passwordParam = new SqlParameter
-                {
-                    ParameterName = "@password",
-                    Value = user.Password
-                };
-                command.Parameters.Add(passwordParam);
-
-                SqlParameter roleParam = new SqlParameter
-                {
-                    ParameterName = "@role",
-                    Value = user.Role
-                };
-                command.Parameters.Add(roleParam);
+                    command.Parameters.Add(new SqlParameter { ParameterName = v.Key, Value = v.Value });
+                }
 
                 var reader = command.ExecuteReader();
 
@@ -126,36 +111,24 @@ namespace DataAccessLayer.Implementation
         {
             string sqlExpression = "sp_UpdateUser";
 
+            Dictionary<string, string> parameters = new Dictionary<string, string>
+            {
+                { "@login", user.Login },
+                { "@email", user.Email },
+                { "@password", user.Password },
+                { "@role", user.Role },
+            };
+
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 connection.Open();
                 SqlCommand command = new SqlCommand(sqlExpression, connection);
                 command.CommandType = System.Data.CommandType.StoredProcedure;
 
-                SqlParameter idParam = new SqlParameter
+                foreach (var v in parameters)
                 {
-                    ParameterName = "@id",
-                    Value = user.Id
-                };
-                command.Parameters.Add(idParam);
-                SqlParameter loginParam = new SqlParameter
-                {
-                    ParameterName = "@login",
-                    Value = user.Login
-                };
-                command.Parameters.Add(loginParam);
-                SqlParameter emailParam = new SqlParameter
-                {
-                    ParameterName = "@email",
-                    Value = user.Email
-                };
-                command.Parameters.Add(emailParam);
-                SqlParameter roleParam = new SqlParameter
-                {
-                    ParameterName = "@role",
-                    Value = user.Role
-                };
-                command.Parameters.Add(roleParam);
+                    command.Parameters.Add(new SqlParameter { ParameterName = v.Key, Value = v.Value });
+                }
 
                 var reader = command.ExecuteReader();
 

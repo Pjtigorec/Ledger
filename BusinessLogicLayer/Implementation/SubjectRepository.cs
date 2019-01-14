@@ -48,10 +48,5 @@ namespace BusinessLogicLayer.Implementation
         {
             return _db.Subjects.GetAllStates();
         }
-
-        public int GetStateId(string stateName)
-        {
-            return _db.Subjects.GetStateId(stateName);
-        }
     }
 }

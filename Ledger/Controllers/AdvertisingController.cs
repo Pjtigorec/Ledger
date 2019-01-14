@@ -1,7 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using Ledger.Models;
+using Ledger.SpamServices;
 using System.Web.Mvc;
 
 namespace Ledger.Controllers
@@ -11,7 +9,9 @@ namespace Ledger.Controllers
         // GET: Advertising
         public ActionResult Index()
         {
-            return PartialView();
+            SpamClient spam = new SpamClient();
+            Spam model = new Spam { Text = spam.GetSpam(), Href = "#" };
+            return PartialView(model);
         }
     }
 }

@@ -12,7 +12,5 @@ namespace Common.Interfaces
         State GetSubjectState(int stateId);
 
         List<State> GetAllStates();
-
-        int GetStateId(string stateName);
     }
 }

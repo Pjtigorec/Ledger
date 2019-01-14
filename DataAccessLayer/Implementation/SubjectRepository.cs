@@ -99,42 +99,25 @@ namespace DataAccessLayer.Implementation
         {
             string sqlExpression = "sp_CreateSubject";
 
+            Dictionary<string, string> parameters = new Dictionary<string, string>
+            {
+                { "@name", subject.Name },
+                { "@inventoryNumber", subject.InventoryNumber},
+                { "@description", subject.Description },
+                { "@stateId", subject.StateId.ToString() },
+                { "@roomId", subject.RoomId.ToString() }
+            };
+
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 connection.Open();
                 SqlCommand command = new SqlCommand(sqlExpression, connection);
                 command.CommandType = System.Data.CommandType.StoredProcedure;
 
-                SqlParameter nameParam = new SqlParameter
+                foreach(var v in parameters)
                 {
-                    ParameterName = "@name",
-                    Value = subject.Name
-                };
-                command.Parameters.Add(nameParam);
-                SqlParameter inventoryNumberParam = new SqlParameter
-                {
-                    ParameterName = "@inventoryNumber",
-                    Value = subject.InventoryNumber
-                };
-                command.Parameters.Add(inventoryNumberParam);
-                SqlParameter descriptionParam = new SqlParameter
-                {
-                    ParameterName = "@description",
-                    Value = subject.Description
-                };
-                command.Parameters.Add(descriptionParam);
-                SqlParameter stateIdParam = new SqlParameter
-                {
-                    ParameterName = "@stateId",
-                    Value = subject.StateId
-                };
-                command.Parameters.Add(stateIdParam);
-                SqlParameter roomIdParam = new SqlParameter
-                {
-                    ParameterName = "@roomId",
-                    Value = subject.RoomId
-                };
-                command.Parameters.Add(roomIdParam);
+                    command.Parameters.Add(new SqlParameter { ParameterName = v.Key, Value = v.Value });
+                }
 
                 try
                 {
@@ -153,49 +136,26 @@ namespace DataAccessLayer.Implementation
         {
             string sqlExpression = "sp_UpdateSubject";
 
+            Dictionary<string, string> parameters = new Dictionary<string, string>
+            {
+                { "@id", subject.Id.ToString() },
+                { "@name", subject.Name },
+                { "@inventoryNumber", subject.InventoryNumber},
+                { "@description", subject.Description },
+                { "@stateId", subject.StateId.ToString() },
+                { "@roomId", subject.RoomId.ToString() }
+            };
+
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 connection.Open();
                 SqlCommand command = new SqlCommand(sqlExpression, connection);
                 command.CommandType = System.Data.CommandType.StoredProcedure;
 
-                SqlParameter idParam = new SqlParameter
+                foreach (var v in parameters)
                 {
-                    ParameterName = "@id",
-                    Value = subject.Id
-                };
-                command.Parameters.Add(idParam);
-                SqlParameter nameParam = new SqlParameter
-                {
-                    ParameterName = "@name",
-                    Value = subject.Name
-                };
-                command.Parameters.Add(nameParam);
-                SqlParameter inventoryNumberParam = new SqlParameter
-                {
-                    ParameterName = "@inventoryNumber",
-                    Value = subject.InventoryNumber
-                };
-                command.Parameters.Add(inventoryNumberParam);
-                SqlParameter descriptionParam = new SqlParameter
-                {
-                    ParameterName = "@description",
-                    Value = subject.Description
-                };
-                command.Parameters.Add(descriptionParam);
-                SqlParameter stateIdParam = new SqlParameter
-                {
-                    ParameterName = "@stateId",
-                    Value = subject.StateId
-                };
-                command.Parameters.Add(stateIdParam);
-                SqlParameter roomIdParam = new SqlParameter
-                {
-                    ParameterName = "@roomId",
-                    Value = subject.RoomId
-                };
-                command.Parameters.Add(roomIdParam);
-                
+                    command.Parameters.Add(new SqlParameter { ParameterName = v.Key, Value = v.Value });
+                }
 
                 var reader = command.ExecuteReader();
 
@@ -288,38 +248,6 @@ namespace DataAccessLayer.Implementation
             }
 
             return states;
-        }
-
-        public int GetStateId(string stateName)
-        {
-            string sqlExpression = "sp_GetStateId";
-
-            using (SqlConnection connection = new SqlConnection(connectionString))
-            {
-                connection.Open();
-                SqlCommand command = new SqlCommand(sqlExpression, connection);
-                command.CommandType = System.Data.CommandType.StoredProcedure;
-
-                SqlParameter stateNameParam = new SqlParameter
-                {
-                    ParameterName = "@stateName",
-                    Value = stateName
-                };
-                command.Parameters.Add(stateNameParam);
-
-                var reader = command.ExecuteReader();
-
-                if (reader.HasRows)
-                {
-                    while (reader.Read())
-                    {
-                        return int.Parse(reader["Id"].ToString());
-                    }
-                }
-                reader.Close();
-            }
-
-            return 0;
         }
     }
 }
