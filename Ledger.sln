@@ -5,6 +5,7 @@ VisualStudioVersion = 15.0.28307.168
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ledger", "Ledger\Ledger.csproj", "{E24DBE14-A93F-4BDF-AEA0-566B305211E1}"
 	ProjectSection(ProjectDependencies) = postProject
+		{8E66A44E-E378-447C-A928-A39BADC9594C} = {8E66A44E-E378-447C-A928-A39BADC9594C}
 		{D73289AC-256F-4708-A1C6-5A81CBD299EE} = {D73289AC-256F-4708-A1C6-5A81CBD299EE}
 	EndProjectSection
 EndProject
@@ -21,6 +22,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Logs", "Logs\Logs.csproj", "{76EEABA2-47AD-46E5-8766-3D0F62992B30}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpamServices", "SpamServices\SpamServices.csproj", "{D73289AC-256F-4708-A1C6-5A81CBD299EE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WcfService2", "WcfService2\WcfService2.csproj", "{8E66A44E-E378-447C-A928-A39BADC9594C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -60,6 +63,10 @@ Global
 		{D73289AC-256F-4708-A1C6-5A81CBD299EE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D73289AC-256F-4708-A1C6-5A81CBD299EE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D73289AC-256F-4708-A1C6-5A81CBD299EE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8E66A44E-E378-447C-A928-A39BADC9594C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8E66A44E-E378-447C-A928-A39BADC9594C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8E66A44E-E378-447C-A928-A39BADC9594C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8E66A44E-E378-447C-A928-A39BADC9594C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
