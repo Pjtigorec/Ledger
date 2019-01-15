@@ -4,3 +4,4 @@ C:\Users\Roman\Documents\GitHub\Ledger\SpamServices\bin\SpamServices.pdb
 C:\Users\Roman\Documents\GitHub\Ledger\SpamServices\obj\Debug\SpamServices.csproj.CoreCompileInputs.cache
 C:\Users\Roman\Documents\GitHub\Ledger\SpamServices\obj\Debug\SpamServices.dll
 C:\Users\Roman\Documents\GitHub\Ledger\SpamServices\obj\Debug\SpamServices.pdb
+C:\Users\Roman\Documents\GitHub\Ledger\SpamServices\obj\Debug\SpamServices.csprojAssemblyReference.cache

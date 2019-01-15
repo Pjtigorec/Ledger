@@ -1,5 +1,6 @@
 ﻿using Microsoft.Win32;
 using SpamServices.Models;
+using System;
 using System.IO;
 
 namespace SpamServices
@@ -9,8 +10,11 @@ namespace SpamServices
         public Spam GetSpam()
         {
             Spam spam = null;
+            Random random = new Random();
+            int number = random.Next(1, 4);
+            string path = Path.GetFullPath(@"Images\"+ number +".jpg");
 
-            using (var fileStream = File.OpenRead(@"~\Images\1.jpg"))
+            using (var fileStream = File.OpenRead(path))
             {
                 var result = new byte[fileStream.Length];
 
