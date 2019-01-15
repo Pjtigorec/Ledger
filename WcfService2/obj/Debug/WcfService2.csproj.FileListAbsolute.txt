@@ -4,3 +4,10 @@ D:\Projects\Students\2018-2\Kurpachenko\Ledger3\WcfService2\bin\WcfService2.pdb
 D:\Projects\Students\2018-2\Kurpachenko\Ledger3\WcfService2\obj\Debug\WcfService2.csproj.CoreCompileInputs.cache
 D:\Projects\Students\2018-2\Kurpachenko\Ledger3\WcfService2\obj\Debug\WcfService2.dll
 D:\Projects\Students\2018-2\Kurpachenko\Ledger3\WcfService2\obj\Debug\WcfService2.pdb
+C:\Users\Roman\Documents\GitHub\Ledger\WcfService2\bin\WcfService2.dll.config
+C:\Users\Roman\Documents\GitHub\Ledger\WcfService2\bin\WcfService2.dll
+C:\Users\Roman\Documents\GitHub\Ledger\WcfService2\bin\WcfService2.pdb
+C:\Users\Roman\Documents\GitHub\Ledger\WcfService2\obj\Debug\WcfService2.csprojAssemblyReference.cache
+C:\Users\Roman\Documents\GitHub\Ledger\WcfService2\obj\Debug\WcfService2.csproj.CoreCompileInputs.cache
+C:\Users\Roman\Documents\GitHub\Ledger\WcfService2\obj\Debug\WcfService2.dll
+C:\Users\Roman\Documents\GitHub\Ledger\WcfService2\obj\Debug\WcfService2.pdb

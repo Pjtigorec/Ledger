@@ -37,7 +37,7 @@ namespace WcfService2
             //    };
             //}
 
-            string path = @"D:\Klepcha_Andrei.jpg";
+            string path = @"D:\1.jpg";
 
             return new Spam {
                 Image = File.ReadAllBytes(path),
