@@ -165,11 +165,12 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Connected Services\SpamServices\configuration91.svcinfo" />
-    <None Include="Connected Services\SpamServices\configuration.svcinfo" />
     <Content Include="Connected Services\SpamServices\Ledger.SpamServices.Spam.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
+    <None Include="Connected Services\SpamServices\SpamService.disco" />
+    <None Include="Connected Services\SpamServices\configuration91.svcinfo" />
+    <None Include="Connected Services\SpamServices\configuration.svcinfo" />
     <None Include="Connected Services\SpamServices\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
@@ -205,14 +206,14 @@
     <Content Include="Content\bootstrap-reboot.css.map" />
     <Content Include="Content\bootstrap-grid.min.css.map" />
     <Content Include="Content\bootstrap-grid.css.map" />
-    <None Include="Connected Services\SpamServices\service.wsdl" />
-    <None Include="Connected Services\SpamServices\service.xsd">
+    <None Include="Connected Services\SpamServices\Service1.wsdl" />
+    <None Include="Connected Services\SpamServices\SpamService.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\SpamServices\service1.xsd">
+    <None Include="Connected Services\SpamServices\SpamService1.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\SpamServices\SpamServices.Models.xsd">
+    <None Include="Connected Services\SpamServices\SpamService2.xsd">
       <SubType>Designer</SubType>
     </None>
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />

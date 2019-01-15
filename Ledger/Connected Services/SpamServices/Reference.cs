@@ -75,40 +75,40 @@ namespace Ledger.SpamServices {
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="SpamServices.ISpamServices")]
-    public interface ISpamServices {
+    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="SpamServices.ISpamService")]
+    public interface ISpamService {
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISpamServices/GetSpam", ReplyAction="http://tempuri.org/ISpamServices/GetSpamResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISpamService/GetSpam", ReplyAction="http://tempuri.org/ISpamService/GetSpamResponse")]
         Ledger.SpamServices.Spam GetSpam();
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISpamServices/GetSpam", ReplyAction="http://tempuri.org/ISpamServices/GetSpamResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISpamService/GetSpam", ReplyAction="http://tempuri.org/ISpamService/GetSpamResponse")]
         System.Threading.Tasks.Task<Ledger.SpamServices.Spam> GetSpamAsync();
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public interface ISpamServicesChannel : Ledger.SpamServices.ISpamServices, System.ServiceModel.IClientChannel {
+    public interface ISpamServiceChannel : Ledger.SpamServices.ISpamService, System.ServiceModel.IClientChannel {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class SpamServicesClient : System.ServiceModel.ClientBase<Ledger.SpamServices.ISpamServices>, Ledger.SpamServices.ISpamServices {
+    public partial class SpamServiceClient : System.ServiceModel.ClientBase<Ledger.SpamServices.ISpamService>, Ledger.SpamServices.ISpamService {
         
-        public SpamServicesClient() {
+        public SpamServiceClient() {
         }
         
-        public SpamServicesClient(string endpointConfigurationName) : 
+        public SpamServiceClient(string endpointConfigurationName) : 
                 base(endpointConfigurationName) {
         }
         
-        public SpamServicesClient(string endpointConfigurationName, string remoteAddress) : 
+        public SpamServiceClient(string endpointConfigurationName, string remoteAddress) : 
                 base(endpointConfigurationName, remoteAddress) {
         }
         
-        public SpamServicesClient(string endpointConfigurationName, System.ServiceModel.EndpointAddress remoteAddress) : 
+        public SpamServiceClient(string endpointConfigurationName, System.ServiceModel.EndpointAddress remoteAddress) : 
                 base(endpointConfigurationName, remoteAddress) {
         }
         
-        public SpamServicesClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
+        public SpamServiceClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
                 base(binding, remoteAddress) {
         }
         

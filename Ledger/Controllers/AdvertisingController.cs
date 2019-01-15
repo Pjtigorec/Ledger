@@ -13,7 +13,7 @@ namespace Ledger.Controllers
 
         public ActionResult GetSpam()
         {
-            SpamServicesClient spam = new SpamServicesClient();
+            SpamServiceClient spam = new SpamServiceClient();
 
             var image = spam.GetSpam();
 
