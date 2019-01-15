@@ -6,17 +6,8 @@
     <div class="border">
         <p>По состоянию</p>
         <div class="col-10">
-            <select id="states" name="States">
-                <option value="0">
-                    Нет
-                </option>
-                @foreach (var v in Model.States)
-                {
-                    <option value="@v.Id">
-                        @v.Name
-                    </option>
-                }
-            </select>
+            @Html.DropDownListFor(model => model.StateId, new SelectList(Model.States, "Id", "Name", Model.StateId), new { id = "filerStates" })
+            <input id="filterButton" type="button" value="Выбрать" class="btn btn-outline-success my-2 my-sm-0" />
         </div>
     </div>
     <hr />

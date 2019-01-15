@@ -23,17 +23,20 @@ namespace Ledger.Controllers
         {
             Filters filter = new Filters();
             filter.States = db.Subjects.GetAllStates();
+            filter.States.Add(new State { Id = 0, Name = "Нет" });
             return PartialView(filter);
         }
 
-        [HttpGet]
-        public ActionResult FilerState(int stateId)
+        public ActionResult GetSubjects(int id)
         {
-            var state = db.Subjects.GetAllStates().Find(s => s.Id == stateId);
-
-            if (state != null)
+            if(id != 0)
             {
-                return PartialView(db.Subjects.GetSubjects().FindAll(s => s.StateId == state.Id));
+                IEnumerable<Subject> subjects = db.Subjects.GetSubjects().Where(s => s.StateId == id);
+                if(subjects.Count() == 0)
+                {
+                    return PartialView(db.Subjects.GetSubjects());
+                }
+                return PartialView(subjects);
             }
 
             return PartialView(db.Subjects.GetSubjects());

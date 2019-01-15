@@ -133,15 +133,15 @@
     <script type="text/javascript">
         $(function ()
         {
-            $('#states').change(function ()
+            $('#filterButton').click(function ()
             {
-                var id = $(this).val();
+                var id = $('#filerStates').val();
                 $.ajax({
                     type: 'GET',
-                    url: '@Url.Action("FilerState", "Filters")/' + id,
+                    url: '@Url.Action("GetSubjects", "Filters")/' + id,
                     success: function (data)
                     {
-                        $('#tbodySibjects').replaceWith(data);
+                        $('#mytable').replaceWith(data);
                     }
                 });
              });

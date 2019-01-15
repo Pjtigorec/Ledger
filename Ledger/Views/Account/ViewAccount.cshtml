@@ -11,13 +11,13 @@
 
 @if (Model.Role == "Admin")
 {
-    <a href="/Home/Add" class="btn btn-outline-success my-2 my-sm-0">Добавить предмет</a>
+    <a href="/Subject/Add" class="btn btn-outline-success my-2 my-sm-0">Добавить предмет</a>
     <hr />
     <a href="/Users" class="btn btn-outline-success my-2 my-sm-0">Пользователи</a>
     <hr />
 }
 else if (Model.Role == "Moderator")
 {
-    <a href="/Home/Add" class="btn btn-outline-success my-2 my-sm-0">Добавить предмет</a>
+    <a href="/Subject/Add" class="btn btn-outline-success my-2 my-sm-0">Добавить предмет</a>
     <hr />
 }

@@ -1,6 +1,4 @@
-﻿@model List<Common.Core.Subject>
-
-@{
+﻿@{
     ViewBag.Title = "Книга хоз учета";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
@@ -15,26 +13,7 @@
             <input type="text" class="form-control pull-right" id="search" placeholder="Поиск по таблице">
         </div>
         <hr />
-
-        <table class="table table-bordered table-striped" id="mytable">
-            <thead>
-                <tr role="row">
-                    <th>Имя</th>
-                    <th>Номер</th>
-                    <th>Описание</th>
-                </tr>
-            </thead>
-            <tbody id="tbodySibjects">
-                @foreach (var v in Model)
-                {
-                    <tr>
-                        <td><a href="/Home/Details/@v.Id" class="compItem" data-toggle="modal">@v.Name</a></td>
-                        <td>@v.InventoryNumber</td>
-                        <td>@v.Description</td>
-                    </tr>
-                }
-            </tbody>
-        </table>
+        @Html.Action("GetSubjects", "Subject")
     </div>
     <div class="col-md-2 border">
         @Html.Action("ViewAccount", "Account")
