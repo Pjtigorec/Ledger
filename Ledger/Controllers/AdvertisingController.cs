@@ -1,5 +1,4 @@
-﻿using Ledger.Models;
-using Ledger.SpamServices;
+﻿using Ledger.ServiceReference1;
 using System.Web.Mvc;
 
 namespace Ledger.Controllers
@@ -8,6 +7,8 @@ namespace Ledger.Controllers
     {
         public ActionResult Index()
         {
+            var spam = this.GetSpam();
+
             return PartialView();
         }
 

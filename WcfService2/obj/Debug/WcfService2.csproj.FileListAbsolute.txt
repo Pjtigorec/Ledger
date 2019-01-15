@@ -1,0 +1,6 @@
+D:\Projects\Students\2018-2\Kurpachenko\Ledger3\WcfService2\bin\WcfService2.dll.config
+D:\Projects\Students\2018-2\Kurpachenko\Ledger3\WcfService2\bin\WcfService2.dll
+D:\Projects\Students\2018-2\Kurpachenko\Ledger3\WcfService2\bin\WcfService2.pdb
+D:\Projects\Students\2018-2\Kurpachenko\Ledger3\WcfService2\obj\Debug\WcfService2.csproj.CoreCompileInputs.cache
+D:\Projects\Students\2018-2\Kurpachenko\Ledger3\WcfService2\obj\Debug\WcfService2.dll
+D:\Projects\Students\2018-2\Kurpachenko\Ledger3\WcfService2\obj\Debug\WcfService2.pdb

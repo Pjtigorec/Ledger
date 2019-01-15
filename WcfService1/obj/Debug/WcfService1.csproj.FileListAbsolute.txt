@@ -1,0 +1,7 @@
+D:\Projects\Students\2018-2\Kurpachenko\Ledger3\WcfService1\obj\Debug\WcfService1.csprojAssemblyReference.cache
+D:\Projects\Students\2018-2\Kurpachenko\Ledger3\WcfService1\obj\Debug\WcfService1.csproj.CoreCompileInputs.cache
+D:\Projects\Students\2018-2\Kurpachenko\Ledger3\WcfService1\bin\WcfService1.dll.config
+D:\Projects\Students\2018-2\Kurpachenko\Ledger3\WcfService1\bin\WcfService1.dll
+D:\Projects\Students\2018-2\Kurpachenko\Ledger3\WcfService1\bin\WcfService1.pdb
+D:\Projects\Students\2018-2\Kurpachenko\Ledger3\WcfService1\obj\Debug\WcfService1.dll
+D:\Projects\Students\2018-2\Kurpachenko\Ledger3\WcfService1\obj\Debug\WcfService1.pdb
